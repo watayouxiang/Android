@@ -26,7 +26,7 @@ public class MDProducer {
 
             @Override
             public String getProjectUrl() {
-                return "https://github.com/watayouxiang/AndroidCode/tree/master";
+                return "https://github.com/watayouxiang/Android/tree/master";
             }
         });
     }
