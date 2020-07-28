@@ -1,2 +1,2 @@
-rootProject.name='AndroidCode'
-include ':app'
+rootProject.name = 'AndroidCode'
+include ':app', ':remoteservice'

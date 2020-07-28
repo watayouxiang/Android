@@ -9,13 +9,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+        <!--Activity-->
+        <activity android:name=".TestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".animation.FrameAnimationActivity" />
+        <activity android:name=".animation.PropertyAnimationActivity" />
+        <activity android:name=".animation.TweenAnimationActivity" />
+        <activity android:name=".animation.TidaAnimatorDemo" />
+        <activity android:name=".service.LocalServiceActivity" />
+        <activity android:name=".service.RemoteServiceActivity" />
+        <activity android:name=".service.IntentServiceActivity" />
+        <activity android:name=".view.TestViewActivity" />
+
+        <!--服务-->
+        <service android:name=".service.LocalServiceDemo" />
+        <service android:name=".service.IntentServiceDemo" />
+
     </application>
 
 </manifest>
