@@ -14,7 +14,7 @@ import com.watayouxiang.demoshell.ListData;
 
 public class TestActivity extends ListActivity {
     private static final String GITHUB_URL = "https://github.com/watayouxiang/AndroidDemo/tree/master";
-    private static final String ANDROID_BASE_URL = GITHUB_URL + "/app/src/main/java/com/watayouxiang/android";
+    private static final String ANDROID_BASE_URL = GITHUB_URL + "/app/src/main/java/com/watayouxiang/androidcode";
     private static final String README = GITHUB_URL + "/README.md";
 
     @Override

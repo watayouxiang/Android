@@ -15,7 +15,7 @@ public class AndroidMD {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return System.getProperty("user.dir") + "/app/src/main/java/com/watayouxiang/android";
+                return System.getProperty("user.dir") + "/app/src/main/java/com/watayouxiang/androidcode";
             }
 
             @Override

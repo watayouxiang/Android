@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.view.View;
-import com.watayouxiang.androidcode.RemoteServiceApi;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
+import com.watayouxiang.remoteservice.RemoteServiceApi;
 
 public class RemoteServiceActivity extends ListActivity {
     private Intent intent;

@@ -1,5 +1,5 @@
 // RemoteServiceApi.aidl
-package com.watayouxiang.androidcode;
+package com.watayouxiang.remoteservice;
 
 // Declare any non-default types here with import statements
 
