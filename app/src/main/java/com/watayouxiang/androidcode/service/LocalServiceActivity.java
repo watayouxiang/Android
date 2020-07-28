@@ -13,12 +13,12 @@ import com.watayouxiang.demoshell.ListData;
 public class LocalServiceActivity extends ListActivity {
     private Intent intent;
     private MyServiceConnection connection;
-    private LocalServiceDemo.Api serviceInterface;
+    private LocalService.Api serviceInterface;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        intent = new Intent(LocalServiceActivity.this, LocalServiceDemo.class);
+        intent = new Intent(LocalServiceActivity.this, LocalService.class);
         connection = new MyServiceConnection();
     }
 
@@ -73,7 +73,7 @@ public class LocalServiceActivity extends ListActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             LogUtil.d("onServiceConnected");
-            serviceInterface = (LocalServiceDemo.Api) service;
+            serviceInterface = (LocalService.Api) service;
         }
 
         /**

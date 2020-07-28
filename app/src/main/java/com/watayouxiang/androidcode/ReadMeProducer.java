@@ -3,10 +3,11 @@ package com.watayouxiang.androidcode;
 import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
-public class AndroidMD {
+// README.md 文件生成器
+public class ReadMeProducer {
 
     /**
-     * main方法运行不起来解决办法：
+     * "android工程" 跑不了 "java main 方法" 的解决办法：
      * <p>
      * .idea/gradle.xml：添加
      * <option name="delegatedBuild" value="false" />

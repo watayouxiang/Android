@@ -13,7 +13,7 @@ public class IntentServiceActivity extends ListActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        intent = new Intent(IntentServiceActivity.this, IntentServiceDemo.class);
+        intent = new Intent(IntentServiceActivity.this, IntentService.class);
         intent.putExtra("start", "IntentServiceDemo");
     }
 

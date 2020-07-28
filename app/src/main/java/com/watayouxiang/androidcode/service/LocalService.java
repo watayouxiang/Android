@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
  * unbindService(connection);
  * onCreate -> onBind -> onUnbind -> onDestroy
  */
-public class LocalServiceDemo extends Service {
+public class LocalService extends Service {
     //创建
     @Override
     public void onCreate() {
@@ -95,7 +95,7 @@ public class LocalServiceDemo extends Service {
     private class MyBinder extends Binder implements Api {
         @Override
         public void playMusic() {
-            LocalServiceDemo.this.playMusic();
+            LocalService.this.playMusic();
         }
     }
 

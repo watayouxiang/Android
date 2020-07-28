@@ -27,8 +27,8 @@
         <activity android:name=".view.TestViewActivity" />
 
         <!--服务-->
-        <service android:name=".service.LocalServiceDemo" />
-        <service android:name=".service.IntentServiceDemo" />
+        <service android:name=".service.IntentService" />
+        <service android:name=".service.LocalService" />
 
     </application>
 

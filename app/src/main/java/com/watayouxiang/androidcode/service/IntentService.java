@@ -1,18 +1,16 @@
 package com.watayouxiang.androidcode.service;
 
-import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 
-public class IntentServiceDemo extends IntentService {
+public class IntentService extends android.app.IntentService {
     private MyHandler handler = new MyHandler(this);
 
     private static class MyHandler extends Handler {
@@ -36,7 +34,7 @@ public class IntentServiceDemo extends IntentService {
     /**
      * 这里必须要有无参构造函数，否则：RuntimeException
      */
-    public IntentServiceDemo() {
+    public IntentService() {
         super("IntentServiceDemo");
     }
 
