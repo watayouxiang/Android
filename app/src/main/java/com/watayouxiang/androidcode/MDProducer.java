@@ -21,7 +21,7 @@ public class MDProducer {
 
             @Override
             public String getOutFilePath() {
-                return System.getProperty("user.dir") + "/app/README.md";
+                return System.getProperty("user.dir") + "/README.md";
             }
 
             @Override
