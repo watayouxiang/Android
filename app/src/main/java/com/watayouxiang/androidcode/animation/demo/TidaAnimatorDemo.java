@@ -1,4 +1,4 @@
-package com.watayouxiang.androidcode.animation;
+package com.watayouxiang.androidcode.animation.demo;
 
 import android.os.Bundle;
 import android.view.View;

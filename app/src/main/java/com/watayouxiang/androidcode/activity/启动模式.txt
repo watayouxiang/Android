@@ -1,4 +1,3 @@
-# launchMode
 
 - standard：标准模式，栈结构，先进先出
 - singleTop：栈顶已有，则调用onNewIntent()

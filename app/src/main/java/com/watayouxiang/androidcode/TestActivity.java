@@ -1,9 +1,9 @@
 package com.watayouxiang.androidcode;
 
-import com.watayouxiang.androidcode.animation.FrameAnimationActivity;
-import com.watayouxiang.androidcode.animation.PropertyAnimationActivity;
-import com.watayouxiang.androidcode.animation.TidaAnimatorDemo;
-import com.watayouxiang.androidcode.animation.TweenAnimationActivity;
+import com.watayouxiang.androidcode.animation.AnimationDrawableActivity;
+import com.watayouxiang.androidcode.animation.AnimatorActivity;
+import com.watayouxiang.androidcode.animation.demo.TidaAnimatorDemo;
+import com.watayouxiang.androidcode.animation.AnimationActivity;
 import com.watayouxiang.androidcode.handler.*;
 import com.watayouxiang.androidcode.service.IntentServiceActivity;
 import com.watayouxiang.androidcode.service.LocalServiceActivity;
@@ -38,9 +38,9 @@ public class TestActivity extends ListActivity {
                 .addActivity(this, LocalServiceActivity.class)
                 .addActivity(this, RemoteServiceActivity.class)
                 .addSection("Animation")
-                .addActivity(this, FrameAnimationActivity.class)
-                .addActivity(this, TweenAnimationActivity.class)
-                .addActivity(this, PropertyAnimationActivity.class)
+                .addActivity(this, AnimationDrawableActivity.class)
+                .addActivity(this, AnimationActivity.class)
+                .addActivity(this, AnimatorActivity.class)
                 .addActivity(this, TidaAnimatorDemo.class)
                 .addSection("Handler")
                 .addWeb(this, ANDROID_BASE_URL + "/handler/Handler消息机制.md")

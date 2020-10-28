@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.watayouxiang.androidcode.R;
 import com.watayouxiang.demoshell.BaseActivity;
 
-public class FrameAnimationActivity extends BaseActivity {
+public class AnimationDrawableActivity extends BaseActivity {
 
     private AnimationDrawable mAnimationDrawable;
 
@@ -25,6 +25,7 @@ public class FrameAnimationActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         ImageView iv_icon = findViewById(R.id.iv_icon);
+
         iv_icon.setBackgroundResource(R.drawable.animation_frame);
         Drawable drawable = iv_icon.getBackground();
         if (drawable instanceof AnimationDrawable) {

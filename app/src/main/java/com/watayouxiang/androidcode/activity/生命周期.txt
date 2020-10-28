@@ -1,4 +1,3 @@
-# lifecycle
 
 - onCreate：创建
 - onStart：前台可见
