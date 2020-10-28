@@ -3,53 +3,47 @@ package com.watayouxiang.androidcode.handler;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 
+import com.blankj.utilcode.util.ToastUtils;
+
+import java.util.Locale;
+
 public class HandlerThread_basicUse2 implements View.OnClickListener {
-    private String TAG = getClass().getSimpleName();
-    private final Handler mMyHandler;
-    private final MyHandlerThread mMyHandlerThread;
+    private final Handler mHandler;
+    private final HandlerThread mHandlerThread;
 
     public HandlerThread_basicUse2() {
         //创建并开启 handlerThread
-        mMyHandlerThread = new MyHandlerThread("<<MyThread>>");
-        mMyHandlerThread.start();
+        mHandlerThread = new HandlerThread("<<MyThread>>");
+        mHandlerThread.start();
+
         //只有开启线程后，调 handlerThread.getLooper() 才有值
-        mMyHandler = new Handler(mMyHandlerThread.getLooper());
-    }
-
-    //定义 handlerThread 线程
-    private class MyHandlerThread extends HandlerThread {
-        MyHandlerThread(String name) {
-            super(name);
-        }
-
-        @Override
-        public void run() {
-            Log.d(TAG, Thread.currentThread().getName() + ": run start");
-            super.run();
-            Log.d(TAG, Thread.currentThread().getName() + ": run end");
-        }
+        mHandler = new Handler(mHandlerThread.getLooper());
     }
 
     @Override
     public void onClick(final View v) {
-        Log.d(TAG, Thread.currentThread().getName() + ": 发送消息");
-        mMyHandler.sendMessage(Message.obtain(mMyHandler, new Runnable() {
+        mHandler.sendMessage(Message.obtain(mHandler, new Runnable() {
             @Override
             public void run() {
-                Log.d(TAG, Thread.currentThread().getName() + ": 收到消息");
+                ToastUtils.showShort(String.format(Locale.getDefault(),
+                        "%s: 收到消息",
+                        Thread.currentThread().getName()
+                ));
             }
         }));
     }
 
     /**
-     * 销毁HandlerThread
+     * 关闭 HandlerThread
      */
-    public void releaseRes() {
-        //handlerThread线程变量中的Looper关闭，线程也会退出
-        mMyHandlerThread.quit();
+    public void closeHandlerThread() {
+        // handlerThread 线程变量中的 Looper 关闭，线程也会退出
+        // 方法1
+        mHandler.getLooper().quit();
+        // 方法2
+        mHandlerThread.quit();
     }
 
 }

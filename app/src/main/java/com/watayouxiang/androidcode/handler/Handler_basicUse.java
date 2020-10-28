@@ -4,13 +4,14 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.Toast;
+
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.lang.ref.WeakReference;
 
 public class Handler_basicUse implements View.OnClickListener {
 
-    //WeakReference + static 避免内存泄漏
+    // WeakReference + static 避免内存泄漏
     private static class MyHandler extends Handler {
         private final WeakReference<Context> mReference;
 
@@ -26,15 +27,16 @@ public class Handler_basicUse implements View.OnClickListener {
             Context context = mReference.get();
             if (context != null) {
                 String txt = "what = " + what + ", obj = " + obj;
-                Toast.makeText(context, txt, Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort(txt);
             }
         }
     }
 
     @Override
     public void onClick(View v) {
-        //子线程发送消息到主线程，从而实现"线程间通讯"
+        // 创建 Handler
         final MyHandler myHandler = new MyHandler(v.getContext());
+        // 子线程发送消息到主线程，从而实现"线程间通讯"
         new Thread(new Runnable() {
             @Override
             public void run() {
