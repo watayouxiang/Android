@@ -1,8 +1,14 @@
 package com.watayouxiang.androidcode.animation;
 
 import android.os.Bundle;
-import android.view.animation.*;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+
 import com.watayouxiang.androidcode.R;
 import com.watayouxiang.demoshell.BaseActivity;
 
@@ -53,6 +59,7 @@ public class AnimationActivity extends BaseActivity {
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
 
+        // 配置动画
         Animation[] arr = {translateAnimation, scaleAnimation, alphaAnimation, rotateAnimation};
         for (Animation animation : arr) {
             animation.setDuration(2000);
@@ -64,10 +71,13 @@ public class AnimationActivity extends BaseActivity {
             animation.setFillAfter(true);
         }
 
+        // 添加动画集合
         mAnimationSet = new AnimationSet(false);
         for (Animation animation : arr) {
             mAnimationSet.addAnimation(animation);
         }
+
+        // 播放动画
         iv_icon.startAnimation(mAnimationSet);
     }
 

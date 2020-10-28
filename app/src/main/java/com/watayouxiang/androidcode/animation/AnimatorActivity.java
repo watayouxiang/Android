@@ -39,6 +39,7 @@ public class AnimatorActivity extends BaseActivity {
         // 旋转动画
         ObjectAnimator rotation = ObjectAnimator.ofFloat(iv_icon, "rotation", 10, 360);
 
+        // 配置动画
         ObjectAnimator[] arr = {translationX, scaleX, scaleY, alpha, rotation};
         for (ObjectAnimator objectAnimator : arr) {
             objectAnimator.setDuration(2000);
@@ -52,14 +53,17 @@ public class AnimatorActivity extends BaseActivity {
 
 //        // 顺序播放动画
 //        mAnimatorSet.playSequentially(translationX, scaleX, alpha, rotation);
-//        // 一起播放动画
-//        mAnimatorSet.playTogether(translationX, scaleX, alpha, rotation);
+//
 //        // 设置改变哪个对象的属性
 //        mAnimatorSet.setTarget(iv_icon);
+//
 //        // with一起播放，after之后播放，before之前播放
 //        mAnimatorSet.play(translationX).with(scaleX).after(alpha).before(rotation);
 
+        // 一起播放
         mAnimatorSet.playTogether(arr);
+
+        // 开始播放
         mAnimatorSet.start();
     }
 
