@@ -1,4 +1,4 @@
-# Handler消息机制
+# Handler介绍
 
 > ActivityThread,Handler,Looper,MessageQueue,Message 如何实现线程间通讯？
 > 
@@ -8,7 +8,7 @@
 
 ## <a name="第一篇">第一篇</a>
 
-### <a name="1.如何在子线程创建Handler">1.如何在子线程创建Handler</a>
+### <a name="1.为什么主线程中可以直接使用Handler">1.为什么主线程中可以直接使用Handler</a>
 
 - App 初始化时会执行 ActivityThread 类的 main 方法。
 - 查看 ActivityThread 源码：
@@ -21,9 +21,11 @@
 
 - 可以知道，主线程之所以可以使用 Handler 是因为在主线程已经初始化过Loop了。
 
-### <a name="2.Looper.prepare()方法源码分析">2.Looper.prepare()方法源码分析</a>
+### <a name="2.为什么每个线程只能创建一个Looper">2.为什么每个线程只能创建一个Looper</a>
 
 ```
+static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+
 private static void prepare(boolean quitAllowed) {
     if (sThreadLocal.get() != null) {
         throw new RuntimeException("Only one Looper may be created per thread");
@@ -34,21 +36,22 @@ private static void prepare(boolean quitAllowed) {
 
 - 可以看到Looper中有一个ThreadLocal成员变量，熟悉JDK的同学应该知道，当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。
 - `Only one Looper may be created per thread` 说明：每个线程只能创建一个Looper，也就是说Looper.prepare()只能调用一次。
+- 可以知道：一个线程只能创建一个Looper
 
 ### <a name="3.Looper构造函数源码分析">3.Looper构造函数源码分析</a>
 - 看Looper对象的构造方法
 
-	```
-	private Looper(boolean quitAllowed) {
-	    mQueue = new MessageQueue(quitAllowed);
-	    mThread = Thread.currentThread();
-	}
-	```
+  ```
+  final MessageQueue mQueue;
+  
+  private Looper(boolean quitAllowed) {
+      mQueue = new MessageQueue(quitAllowed);
+      mThread = Thread.currentThread();
+  }
+  ```
 
 - 可以看到在其构造方法中初始化了一个MessageQueue对象。MessageQueue也称之为消息队列，特点是先进先出，底层实现是单链表数据结构。
-- 综上所述，可以得出如下结论：
-	
-	- 一个线程只能创建一个Looper，一个Looper只能拥有一个MessageQueue。所以一个线程只能拥有一个Looper和一个MessageQueue.
+  - 可以得出结论：一个Looper只能拥有一个MessageQueue
 
 ### <a name="4.Handler的sendMessage方法是如何运行的">4.Handler的sendMessage方法是如何运行的</a>
 
