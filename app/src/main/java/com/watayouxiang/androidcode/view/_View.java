@@ -19,7 +19,7 @@ public class _View extends ListActivity {
                 .addWeb(this, "「view code」", Const.view_url)
                 .addSection("Canvas, Path")
                 .addActivity(this, i01Activity.class)
-                .addSection("view 事件体系")
+                .addSection("View基础")
                 .addActivity(this, i02Activity.class)
                 ;
     }
