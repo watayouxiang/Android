@@ -1,4 +1,4 @@
-package com.watayouxiang.androidcode;
+package com.watayouxiang.myfile;
 
 import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
@@ -15,7 +15,7 @@ public class MDProducer {
 
             @Override
             public String getOutFilePath() {
-                return Const.project_dir + "/app/README.md";
+                return Const.project_dir + "/myFile/README.md";
             }
 
             @Override
