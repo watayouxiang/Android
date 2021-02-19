@@ -1,3 +1,4 @@
+include ':myFile'
 rootProject.name = 'Android'
 include ':app'
 include ':remoteService'
