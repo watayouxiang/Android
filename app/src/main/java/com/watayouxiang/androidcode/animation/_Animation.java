@@ -16,12 +16,12 @@ public class _Animation extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "view code", Const.animation_dir)
+                .addWeb(this, "view code", Const.animation_url)
                 .addActivity(this, AnimationDrawableActivity.class)
                 .addActivity(this, AnimationActivity.class)
                 .addActivity(this, AnimatorActivity.class)
                 .addActivity(this, TidaAnimatorActivity.class)
-                .addWeb(this, Const.animation_dir + "/动画概括.txt")
+                .addWeb(this, Const.animation_url + "/动画概括.txt")
                 ;
     }
 }

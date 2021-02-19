@@ -11,14 +11,17 @@ package com.watayouxiang.androidcode;
 public interface Const {
 
     String github_url = "https://github.com/watayouxiang/Android/tree/master";
-    String app_java_dir = github_url + "/app/src/main/java/com/watayouxiang/androidcode";
-    String remoteService_main_dir = github_url + "/remoteService/src/main";
+    String app_java_url = github_url + "/app/src/main/java/com/watayouxiang/androidcode";
+    String remoteService_main_url = github_url + "/remoteService/src/main";
 
-    String activity_dir = app_java_dir + "/activity";
-    String animation_dir = app_java_dir + "/animation";
-    String handler_dir = app_java_dir + "/handler";
-    String others_dir = app_java_dir + "/others";
-    String service_dir = app_java_dir + "/service";
-    String view_dir = app_java_dir + "/view";
+    String project_dir = System.getProperty("user.dir");
+    String app_java_dir = project_dir + "/app/src/main/java/com/watayouxiang/androidcode";
+
+    String activity_url = app_java_url + "/activity";
+    String animation_url = app_java_url + "/animation";
+    String handler_url = app_java_url + "/handler";
+    String others_url = app_java_url + "/others";
+    String service_url = app_java_url + "/service";
+    String view_url = app_java_url + "/view";
 
 }

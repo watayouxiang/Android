@@ -10,17 +10,17 @@ public class MDProducer {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return System.getProperty("user.dir") + "/app/src/main/java/com/watayouxiang/androidcode";
+                return Const.app_java_dir;
             }
 
             @Override
             public String getOutFilePath() {
-                return System.getProperty("user.dir") + "/README.md";
+                return Const.project_dir + "/README.md";
             }
 
             @Override
             public String getProjectUrl() {
-                return "https://github.com/watayouxiang/Android/tree/master";
+                return Const.github_url;
             }
         });
     }

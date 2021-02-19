@@ -16,7 +16,7 @@ public class _View extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "view code", Const.view_dir)
+                .addWeb(this, "view code", Const.view_url)
                 .addActivity(this, Test01Activity.class)
                 .addActivity(this, Test02Activity.class)
                 ;
