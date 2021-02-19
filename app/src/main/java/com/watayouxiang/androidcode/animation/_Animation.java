@@ -16,7 +16,7 @@ public class _Animation extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, Const.animation_url)
+                .addWeb(this, "「view code」", Const.animation_url)
                 .addSection("Knowledge Point")
                 .addActivity(this, AnimationDrawableActivity.class)
                 .addActivity(this, AnimationActivity.class)

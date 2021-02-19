@@ -16,7 +16,7 @@ public class _View extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, Const.view_url)
+                .addWeb(this, "「view code」", Const.view_url)
                 .addSection("Canvas, Path")
                 .addActivity(this, i01Activity.class)
                 .addSection("view 事件体系")

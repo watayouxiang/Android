@@ -16,7 +16,7 @@ public class _Handler extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, Const.handler_url)
+                .addWeb(this, "「view code」", Const.handler_url)
                 .addSection("Knowledge Point")
                 .addClick(new Handler_basicUse())
                 .addClick(new Handler_basicUse2())
