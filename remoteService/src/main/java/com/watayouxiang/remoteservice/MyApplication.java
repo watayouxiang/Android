@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
-public class APP extends Application {
+public class MyApplication extends Application {
     private static Context context;
     private static Handler handler;
 

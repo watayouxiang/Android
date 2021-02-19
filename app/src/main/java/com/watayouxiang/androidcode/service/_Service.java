@@ -20,6 +20,7 @@ public class _Service extends ListActivity {
                 .addActivity(this, IntentServiceActivity.class)
                 .addActivity(this, LocalServiceActivity.class)
                 .addActivity(this, RemoteServiceActivity.class)
+                .addWeb(this, "view remoteService code", Const.remoteService_main_dir)
                 ;
     }
 }
