@@ -16,7 +16,7 @@ public class _Activity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "view code", Const.activity_url)
+                .addWeb(this, Const.activity_url)
                 .addWeb(this, Const.activity_url + "/启动模式.txt")
                 .addWeb(this, Const.activity_url + "/生命周期.txt")
                 ;

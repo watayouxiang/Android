@@ -17,9 +17,9 @@ public class _View extends ListActivity {
     protected ListData getListData() {
         return new ListData()
                 .addWeb(this, Const.view_url)
-                .addSection("-- Canvas, Path")
+                .addSection("Canvas, Path")
                 .addActivity(this, i01Activity.class)
-                .addSection("-- view 事件体系")
+                .addSection("view 事件体系")
                 .addActivity(this, i02Activity.class)
                 ;
     }
