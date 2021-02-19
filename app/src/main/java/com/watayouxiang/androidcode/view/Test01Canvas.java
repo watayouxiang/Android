@@ -10,17 +10,17 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CanvasTestView extends View {
+public class Test01Canvas extends View {
 
     // ===========================================================================================
     // 构造函数
     // ===========================================================================================
 
-    public CanvasTestView(Context context) {
+    public Test01Canvas(Context context) {
         this(context, null);
     }
 
-    public CanvasTestView(Context context, AttributeSet attrs) {
+    public Test01Canvas(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -29,7 +29,7 @@ public class CanvasTestView extends View {
      * @param attrs        将自定义控件声明在布局文件中
      * @param defStyleAttr 样式
      */
-    public CanvasTestView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public Test01Canvas(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         paint = new Paint();
         paint.setColor(Color.RED);

@@ -8,9 +8,9 @@ import com.watayouxiang.demoshell.BaseActivity;
  * date : 2020-01-20
  * desc :
  */
-public class TestViewActivity extends BaseActivity {
+public class Test01Activity extends BaseActivity {
     @Override
     protected int getRootViewId() {
-        return R.layout.activity_test_view;
+        return R.layout.activity_view_test01;
     }
 }

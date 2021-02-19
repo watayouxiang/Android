@@ -1,15 +1,17 @@
-package com.watayouxiang.androidcode.animation.demo;
+package com.watayouxiang.androidcode.animation;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.watayouxiang.androidcode.R;
 import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
 
-public class TidaAnimatorDemo extends DemoActivity {
+public class TidaAnimatorActivity extends DemoActivity {
     @Override
     protected CharSequence getPageTitle() {
         return "消息提醒动画";

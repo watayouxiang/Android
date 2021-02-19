@@ -1,4 +1,4 @@
-package com.watayouxiang.androidcode.animation.demo;
+package com.watayouxiang.androidcode.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
