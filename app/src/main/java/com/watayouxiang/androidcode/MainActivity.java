@@ -23,7 +23,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, Const.app_java_url)
+                .addWeb(this, "「view code」", Const.app_java_url)
                 .addActivity(this, _Activity.class)
                 .addActivity(this, _Animation.class)
                 .addActivity(this, _Handler.class)
