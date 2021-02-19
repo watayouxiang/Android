@@ -16,11 +16,12 @@ public class _Service extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "view code", Const.service_url)
+                .addWeb(this, Const.service_url)
+                .addSection("Knowledge Point")
                 .addActivity(this, IntentServiceActivity.class)
                 .addActivity(this, LocalServiceActivity.class)
                 .addActivity(this, RemoteServiceActivity.class)
-                .addWeb(this, "view remoteService code", Const.remoteService_main_url)
+                .addWeb(this, "remoteService", Const.remoteService_main_url)
                 ;
     }
 }

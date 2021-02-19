@@ -16,7 +16,7 @@ public class _Others extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "view code", Const.others_url)
+                .addWeb(this, Const.others_url)
                 .addWeb(this, Const.others_url + "/Android内存泄漏.md")
                 .addWeb(this, Const.others_url + "/Android架构.md")
                 ;

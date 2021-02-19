@@ -8,20 +8,20 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class Test01Path extends View {
+public class i01PathView extends View {
 
 	private Paint paint;
 	private Path path;
 
-	public Test01Path(Context context) {
+	public i01PathView(Context context) {
 		this(context,null);
 	}
 
-	public Test01Path(Context context, AttributeSet attrs) {
+	public i01PathView(Context context, AttributeSet attrs) {
 		this(context, attrs,0);
 	}
 
-	public Test01Path(Context context, AttributeSet attrs, int defStyleAttr) {
+	public i01PathView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init();
 	}

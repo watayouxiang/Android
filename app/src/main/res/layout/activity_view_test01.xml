@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.watayouxiang.androidcode.view.Test01Path
+    <com.watayouxiang.androidcode.view.i01PathView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.watayouxiang.androidcode.view.Test01Canvas
+    <com.watayouxiang.androidcode.view.i01CanvasView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
