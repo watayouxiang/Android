@@ -37,8 +37,8 @@ public class MDProducer {
         String view_url = myAndroid_url + "/view";
 
         String project_dir = System.getProperty("user.dir");
-        String md_in_dir = project_dir + "/app/src/main/java/com/watayouxiang/androidcode";
-        String md_out_dir = project_dir + "/app/README.md";
+        String md_in_dir = project_dir + "/myAndroid/src/main/java/com/watayouxiang/myandroid";
+        String md_out_dir = project_dir + "/myAndroid/README.md";
     }
 
 }
