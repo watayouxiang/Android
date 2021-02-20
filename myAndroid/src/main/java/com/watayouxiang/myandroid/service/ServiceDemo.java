@@ -14,7 +14,7 @@ import com.watayouxiang.myandroid.service.remote_service.RemoteServiceActivity;
  *     desc   :
  * </pre>
  */
-public class _Service_ extends ListActivity {
+public class ServiceDemo extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()

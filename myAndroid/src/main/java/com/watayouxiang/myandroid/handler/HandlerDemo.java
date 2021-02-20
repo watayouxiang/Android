@@ -11,7 +11,7 @@ import com.watayouxiang.demoshell.ListData;
  *     desc   :
  * </pre>
  */
-public class _Handler_ extends ListActivity {
+public class HandlerDemo extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()

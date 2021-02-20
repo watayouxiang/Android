@@ -12,7 +12,7 @@ import com.watayouxiang.myandroid.animation.tida.TidaAnimatorActivity;
  *     desc   :
  * </pre>
  */
-public class _Animation_ extends ListActivity {
+public class AnimationDemo extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()

@@ -3,7 +3,7 @@
     package="com.watayouxiang.myandroid">
 
     <application>
-        <activity android:name=".animation._Animation_" />
+        <activity android:name=".animation.AnimationDemo" />
         <activity android:name=".animation.AnimationDrawableActivity" />
         <activity android:name=".animation.AnimatorActivity" />
         <activity android:name=".animation.AnimationActivity" />
@@ -13,10 +13,10 @@
         <activity android:name=".service.intent_service.IntentServiceActivity" />
         <activity android:name=".view.Canvas_BaseActivity" />
         <activity android:name=".view.View_Base01Activity" />
-        <activity android:name=".view._View_" />
-        <activity android:name=".handler._Handler_" />
-        <activity android:name=".service._Service_" />
-        <activity android:name="._MyAndroid_" />
+        <activity android:name=".view.ViewDemo" />
+        <activity android:name=".handler.HandlerDemo" />
+        <activity android:name=".service.ServiceDemo" />
+        <activity android:name=".MyAndroidDemo" />
 
         <service android:name=".service.intent_service.IntentService" />
         <service android:name=".service.local_service.LocalService" />
