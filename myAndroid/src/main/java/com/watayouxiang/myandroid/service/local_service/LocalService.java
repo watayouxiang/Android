@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.service;
+package com.watayouxiang.myandroid.service.local_service;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -9,6 +9,8 @@ import android.os.Binder;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
+
+import com.watayouxiang.myandroid.service.LogUtil;
 
 /**
  * 隐式启动：

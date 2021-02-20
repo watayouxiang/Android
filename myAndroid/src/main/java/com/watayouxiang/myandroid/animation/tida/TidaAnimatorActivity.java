@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.animation;
+package com.watayouxiang.myandroid.animation.tida;
 
 import android.os.Bundle;
 import android.view.View;

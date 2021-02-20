@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.service;
+package com.watayouxiang.myandroid.service.intent_service;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.os.Message;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.watayouxiang.myandroid.service.LogUtil;
 
 import java.lang.ref.WeakReference;
 

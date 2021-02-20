@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.view;
+package com.watayouxiang.myandroid.others;
 
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
@@ -12,16 +12,12 @@ import com.watayouxiang.mycommon.Const;
  *     desc   :
  * </pre>
  */
-public class _View extends ListActivity {
+public class _Others_ extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", Const.myAndroid_view_url)
-                .addSection("Canvas, Path")
-                .addActivity(this, i01Activity.class)
-                .addSection("View基础")
-                .addActivity(this, i02Activity.class)
+                .addWeb(this, Const.myAndroid_others_url + "/Android内存泄漏.md")
+                .addWeb(this, Const.myAndroid_others_url + "/Android架构.md")
                 ;
     }
 }
-

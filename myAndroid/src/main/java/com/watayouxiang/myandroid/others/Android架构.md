@@ -7,7 +7,7 @@
 
 ---
 
-<img src="./Android架构.png" width="600"/>
+<img src="./Android架构-配图.png" width="600"/>
 
 ### MVC
 

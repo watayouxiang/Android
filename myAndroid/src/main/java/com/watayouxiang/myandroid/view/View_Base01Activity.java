@@ -11,9 +11,9 @@ import com.watayouxiang.demoshell.BaseActivity;
  *     desc   :
  * </pre>
  */
-public class i02Activity extends BaseActivity {
+public class View_Base01Activity extends BaseActivity {
     @Override
     protected int getRootViewId() {
-        return R.layout.activity_view_test02;
+        return R.layout.activity_view_view01;
     }
 }

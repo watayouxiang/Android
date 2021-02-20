@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.service;
+package com.watayouxiang.myandroid.service.intent_service;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -12,11 +12,10 @@ import com.watayouxiang.mycommon.Const;
  *     desc   :
  * </pre>
  */
-public class _Activity extends ListActivity {
+public class _Activity_ extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", Const.myAndroid_activity_url)
                 .addWeb(this, Const.myAndroid_activity_url + "/启动模式.txt")
                 .addWeb(this, Const.myAndroid_activity_url + "/生命周期.txt")
                 ;

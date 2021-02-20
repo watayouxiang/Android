@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.service;
+package com.watayouxiang.myandroid.service.local_service;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
+import com.watayouxiang.myandroid.service.LogUtil;
 
 public class LocalServiceActivity extends ListActivity {
     private Intent intent;

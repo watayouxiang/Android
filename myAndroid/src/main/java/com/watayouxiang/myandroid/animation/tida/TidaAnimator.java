@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.animation;
+package com.watayouxiang.myandroid.animation.tida;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

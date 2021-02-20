@@ -20,20 +20,20 @@ import java.util.Locale;
  *     desc   : 
  * </pre>
  */
-public class i02TestButton extends TextView {
+public class View_Base01 extends TextView {
     private static final String TAG = "TestButton";
 
-    public i02TestButton(Context context) {
+    public View_Base01(Context context) {
         super(context);
         init();
     }
 
-    public i02TestButton(Context context, AttributeSet attrs) {
+    public View_Base01(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public i02TestButton(Context context, AttributeSet attrs, int defStyle) {
+    public View_Base01(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
