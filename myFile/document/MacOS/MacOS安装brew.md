@@ -1,4 +1,4 @@
-# MacOS安装brew(MacOS安装svn)
+# MacOS安装brew
 
 > 参考来源：https://blog.csdn.net/mehent/article/details/108180940
 
@@ -6,7 +6,7 @@
 
 ## Homebrew介绍
 
-- Homebrew 能干什么? 使用 Homebrew 安装 Apple 没有预装但 你需要的东西。
+- Homebrew 能干什么? 使用 Homebrew 安装 Apple 没有预装，但你需要的东西。
 
 - Xcode 现在已经不提供svn的命令行工具了，想安装的话，需要先安装 brew。
 - Homebrew官方地址: https://brew.sh/index_zh-cn

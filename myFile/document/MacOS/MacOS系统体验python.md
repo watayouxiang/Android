@@ -1,5 +1,5 @@
-# 20190111-macOS环境下体验python #
- 
+# MacOS系统体验python(20190111) #
+
 > 作者操作系统 macOS Mojava 10.14，该系统自带 python 环境，版本号为 2.7
 >
 > 可通过 `$ python -V` 命令查询

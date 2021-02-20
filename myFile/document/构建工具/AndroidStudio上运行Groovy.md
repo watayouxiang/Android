@@ -1,4 +1,4 @@
-# 20190614-AndroidStudio上运行Groovy
+# AndroidStudio上运行Groovy(20190614)
 
 ## 1、新建Java Library
 

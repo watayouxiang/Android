@@ -1,4 +1,4 @@
-# 20190116-MacOS系统配置GitSSH
+# MacOS系统配置GitSSH(20190116)
 
 ### 1. 生成 “ssh key”
 
