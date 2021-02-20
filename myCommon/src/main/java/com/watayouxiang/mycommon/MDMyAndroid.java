@@ -15,7 +15,7 @@ public class MDMyAndroid {
 
             @Override
             public String getOutFilePath() {
-                return Const.myAndroid_MDPath;
+                return Const.myAndroid_md_path;
             }
 
             @Override

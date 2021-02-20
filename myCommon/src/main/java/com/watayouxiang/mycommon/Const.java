@@ -18,6 +18,10 @@ public interface Const {
     // ====================================================================================
 
     String myAndroid_url = github_url + "/myAndroid/src/main/java/com/watayouxiang/myandroid";
+    String myAndroid_dir = project_dir + "/myAndroid/src/main/java/com/watayouxiang/myandroid";
+
+    String myAndroid_md_url = github_url + "/myAndroid/README.md";
+    String myAndroid_md_path = project_dir + "/myAndroid/README.md";
 
     String remoteService_url = github_url + "/remoteService/src/main";
 
@@ -28,21 +32,21 @@ public interface Const {
     String myAndroid_service_url = myAndroid_url + "/service";
     String myAndroid_view_url = myAndroid_url + "/view";
 
-    String myAndroid_dir = project_dir + "/myAndroid/src/main/java/com/watayouxiang/myandroid";
-    String myAndroid_MDPath = project_dir + "/myAndroid/README.md";
-
     // ====================================================================================
     // myDocument
     // ====================================================================================
 
     String myDocument_dir = project_dir + "/myDocument/document";
-    String myDocument_MDPath = project_dir + "/myDocument/README.md";
+
+    String myDocument_md_url = github_url + "/myDocument/README.md";
+    String myDocument_md_path = project_dir + "/myDocument/README.md";
 
     // ====================================================================================
     // myJava
     // ====================================================================================
 
     String myJava_dir = project_dir + "/myJava/src/main/java/com/watayouxiang/myjava";
-    String myJava_MDPath = project_dir + "/myJava/README.md";
 
+    String myJava_md_url = github_url + "/myJava/README.md";
+    String myJava_md_path = project_dir + "/myJava/README.md";
 }

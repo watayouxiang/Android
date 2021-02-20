@@ -15,7 +15,7 @@ public class MDMyJava {
 
             @Override
             public String getOutFilePath() {
-                return Const.myJava_MDPath;
+                return Const.myJava_md_path;
             }
 
             @Override

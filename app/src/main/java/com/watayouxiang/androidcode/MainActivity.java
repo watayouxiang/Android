@@ -20,7 +20,17 @@ public class MainActivity extends ListActivity {
     protected ListData getListData() {
         return new ListData()
                 .addWeb(this, "「github homepage」", Const.github_url)
+
+                .addSection("Android")
+                .addWeb(this, Const.myAndroid_md_url)
                 .addActivity(this, _MyAndroid_.class)
+
+                .addSection("Java")
+                .addWeb(this, Const.myJava_md_url)
+
+                .addSection("Document")
+                .addWeb(this, Const.myDocument_md_url)
+
                 ;
     }
 }
