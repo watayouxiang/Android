@@ -27,8 +27,10 @@ public class MDProducer {
 
     public interface Const {
         String github_url = "https://github.com/watayouxiang/Android/tree/master";
+
         String remoteService_url = github_url + "/remoteService/src/main";
-        String myAndroid_url = github_url + "/app/src/main/java/com/watayouxiang/androidcode";
+
+        String myAndroid_url = github_url + "/myAndroid/src/main/java/com/watayouxiang/myandroid";
         String activity_url = myAndroid_url + "/activity";
         String animation_url = myAndroid_url + "/animation";
         String handler_url = myAndroid_url + "/handler";
