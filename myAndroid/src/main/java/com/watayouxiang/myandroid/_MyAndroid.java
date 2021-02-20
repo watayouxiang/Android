@@ -1,6 +1,5 @@
 package com.watayouxiang.myandroid;
 
-import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.myandroid.activity._Activity;
@@ -9,6 +8,7 @@ import com.watayouxiang.myandroid.handler._Handler;
 import com.watayouxiang.myandroid.others._Others;
 import com.watayouxiang.myandroid.service._Service;
 import com.watayouxiang.myandroid.view._View;
+import com.watayouxiang.mycommon.Const;
 
 public class _MyAndroid extends ListActivity {
     @Override

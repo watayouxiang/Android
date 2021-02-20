@@ -1,4 +1,4 @@
-package com.watayouxiang.common;
+package com.watayouxiang.mycommon;
 
 /**
  * <pre>

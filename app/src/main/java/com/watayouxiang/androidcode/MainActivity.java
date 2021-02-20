@@ -1,9 +1,9 @@
 package com.watayouxiang.androidcode;
 
-import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.myandroid._MyAndroid;
+import com.watayouxiang.mycommon.Const;
 
 public class MainActivity extends ListActivity {
     @Override

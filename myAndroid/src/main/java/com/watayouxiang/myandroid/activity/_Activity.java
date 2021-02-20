@@ -1,8 +1,8 @@
 package com.watayouxiang.myandroid.activity;
 
-import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
+import com.watayouxiang.mycommon.Const;
 
 /**
  * <pre>
