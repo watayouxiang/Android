@@ -18,24 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".animation._Animation" />
-        <activity android:name=".animation.AnimationDrawableActivity" />
-        <activity android:name=".animation.AnimatorActivity" />
-        <activity android:name=".animation.AnimationActivity" />
-        <activity android:name=".animation.TidaAnimatorActivity" />
-        <activity android:name=".service.LocalServiceActivity" />
-        <activity android:name=".service.RemoteServiceActivity" />
-        <activity android:name=".service.IntentServiceActivity" />
-        <activity android:name=".view.i01Activity" />
-        <activity android:name=".view.i02Activity" />
-        <activity android:name=".view._View" />
-        <activity android:name=".activity._Activity" />
-        <activity android:name=".handler._Handler" />
-        <activity android:name=".service._Service" />
-        <activity android:name=".others._Others" />
-
-        <service android:name=".service.IntentService" />
-        <service android:name=".service.LocalService" />
 
     </application>
 

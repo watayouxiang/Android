@@ -1,3 +1,4 @@
+include ':myAndroid'
 include ':myJava'
 include ':myFile'
 rootProject.name = 'Android'

@@ -29,5 +29,9 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
     implementation 'com.watayouxiang:DemoShell:1.0.8'
+    implementation 'com.blankj:utilcodex:1.30.5'
+    compile files('libs/nineoldandroids.jar')
 }
