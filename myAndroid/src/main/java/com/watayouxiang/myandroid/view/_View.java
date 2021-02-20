@@ -1,8 +1,8 @@
 package com.watayouxiang.myandroid.view;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.myandroid.MDProducer;
 
 /**
  * <pre>
@@ -16,7 +16,7 @@ public class _View extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", MDProducer.Const.view_url)
+                .addWeb(this, "「view code」", Const.view_url)
                 .addSection("Canvas, Path")
                 .addActivity(this, i01Activity.class)
                 .addSection("View基础")

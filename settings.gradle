@@ -1,6 +1,8 @@
+include ':common'
 include ':myAndroid'
 include ':myJava'
 include ':myFile'
-rootProject.name = 'Android'
-include ':app'
 include ':remoteService'
+include ':app'
+
+rootProject.name = 'Android'

@@ -1,5 +1,6 @@
 package com.watayouxiang.myandroid;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.myandroid.activity._Activity;
@@ -13,7 +14,7 @@ public class _MyAndroid extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", MDProducer.Const.myAndroid_url)
+                .addWeb(this, "「view code」", Const.myAndroid_url)
                 .addActivity(this, _Activity.class)
                 .addActivity(this, _Animation.class)
                 .addActivity(this, _Handler.class)

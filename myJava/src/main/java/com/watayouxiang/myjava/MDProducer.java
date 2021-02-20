@@ -1,5 +1,6 @@
 package com.watayouxiang.myjava;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
@@ -10,12 +11,12 @@ public class MDProducer {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return Const.md_in_dir;
+                return Const.myJava_inDir;
             }
 
             @Override
             public String getOutFilePath() {
-                return Const.md_out_dir;
+                return Const.myJava_outFile;
             }
 
             @Override
@@ -23,14 +24,6 @@ public class MDProducer {
                 return Const.github_url;
             }
         });
-    }
-
-    public interface Const {
-        String github_url = "https://github.com/watayouxiang/Android/tree/master";
-
-        String project_dir = System.getProperty("user.dir");
-        String md_in_dir = project_dir + "/myJava/src/main/java/com/watayouxiang/myjava";
-        String md_out_dir = project_dir + "/myJava/README.md";
     }
 
 }

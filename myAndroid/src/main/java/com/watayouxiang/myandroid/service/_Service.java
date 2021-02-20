@@ -1,8 +1,8 @@
 package com.watayouxiang.myandroid.service;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.myandroid.MDProducer;
 
 /**
  * <pre>
@@ -16,12 +16,12 @@ public class _Service extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", MDProducer.Const.service_url)
+                .addWeb(this, "「view code」", Const.service_url)
                 .addSection("Knowledge Point")
                 .addActivity(this, IntentServiceActivity.class)
                 .addActivity(this, LocalServiceActivity.class)
                 .addActivity(this, RemoteServiceActivity.class)
-                .addWeb(this, "remoteService", MDProducer.Const.remoteService_url)
+                .addWeb(this, "remoteService", Const.remoteService_url)
                 ;
     }
 }

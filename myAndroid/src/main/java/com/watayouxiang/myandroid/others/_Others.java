@@ -1,8 +1,8 @@
 package com.watayouxiang.myandroid.others;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.myandroid.MDProducer;
 
 /**
  * <pre>
@@ -16,9 +16,9 @@ public class _Others extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", MDProducer.Const.others_url)
-                .addWeb(this, MDProducer.Const.others_url + "/Android内存泄漏.md")
-                .addWeb(this, MDProducer.Const.others_url + "/Android架构.md")
+                .addWeb(this, "「view code」", Const.others_url)
+                .addWeb(this, Const.others_url + "/Android内存泄漏.md")
+                .addWeb(this, Const.others_url + "/Android架构.md")
                 ;
     }
 }

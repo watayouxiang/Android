@@ -1,8 +1,8 @@
 package com.watayouxiang.myandroid.activity;
 
+import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.myandroid.MDProducer;
 
 /**
  * <pre>
@@ -16,9 +16,9 @@ public class _Activity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", MDProducer.Const.activity_url)
-                .addWeb(this, MDProducer.Const.activity_url + "/启动模式.txt")
-                .addWeb(this, MDProducer.Const.activity_url + "/生命周期.txt")
+                .addWeb(this, "「view code」", Const.activity_url)
+                .addWeb(this, Const.activity_url + "/启动模式.txt")
+                .addWeb(this, Const.activity_url + "/生命周期.txt")
                 ;
     }
 }
