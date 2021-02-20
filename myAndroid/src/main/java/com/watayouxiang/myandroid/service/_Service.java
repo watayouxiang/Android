@@ -16,7 +16,7 @@ public class _Service extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", Const.service_url)
+                .addWeb(this, "「view code」", Const.myAndroid_service_url)
                 .addSection("Knowledge Point")
                 .addActivity(this, IntentServiceActivity.class)
                 .addActivity(this, LocalServiceActivity.class)

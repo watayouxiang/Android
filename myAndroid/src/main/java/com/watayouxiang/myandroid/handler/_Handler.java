@@ -16,7 +16,7 @@ public class _Handler extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「view code」", Const.handler_url)
+                .addWeb(this, "「view code」", Const.myAndroid_handler_url)
                 .addSection("Knowledge Point")
                 .addClick(new Handler_basicUse())
                 .addClick(new Handler_basicUse2())
@@ -26,8 +26,8 @@ public class _Handler extends ListActivity {
                 .addClick(new HandlerThread_basicUse())
                 .addClick(new HandlerThread_basicUse2())
                 .addSection("Summary")
-                .addWeb(this, Const.handler_url + "/HandlerThread介绍.md")
-                .addWeb(this, Const.handler_url + "/Handler介绍.md")
+                .addWeb(this, Const.myAndroid_handler_url + "/HandlerThread介绍.md")
+                .addWeb(this, Const.myAndroid_handler_url + "/Handler介绍.md")
                 ;
     }
 }

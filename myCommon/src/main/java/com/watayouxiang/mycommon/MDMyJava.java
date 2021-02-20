@@ -4,18 +4,18 @@ import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
 // README.md 文件生成器
-public class MDProducer_MyDocument {
+public class MDMyJava {
 
     public static void main(String[] args) {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return Const.myDocument_inDir;
+                return Const.myJava_dir;
             }
 
             @Override
             public String getOutFilePath() {
-                return Const.myDocument_outFile;
+                return Const.myJava_MDPath;
             }
 
             @Override
