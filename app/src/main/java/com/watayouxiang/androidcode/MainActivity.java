@@ -21,9 +21,9 @@ public class MainActivity extends ListActivity {
         return new ListData()
                 .addWeb(this, "github homepage", Const.github_url)
                 .addActivity(this, MyAndroidDemo.class)
-                .addWeb(this, "Android", Const.myAndroid_md_url)
-                .addWeb(this, "Java", Const.myJava_md_url)
-                .addWeb(this, "Document", Const.myDocument_md_url)
+                .addWeb(this, "Android README", Const.myAndroid_md_url)
+                .addWeb(this, "Java README", Const.myJava_md_url)
+                .addWeb(this, "Document README", Const.myDocument_md_url)
                 ;
     }
 }
