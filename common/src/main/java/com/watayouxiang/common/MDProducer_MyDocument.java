@@ -1,22 +1,21 @@
-package com.watayouxiang.myfile;
+package com.watayouxiang.common;
 
-import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
 // README.md 文件生成器
-public class MDProducer {
+public class MDProducer_MyDocument {
 
     public static void main(String[] args) {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return Const.myFile_inDir;
+                return Const.myDocument_inDir;
             }
 
             @Override
             public String getOutFilePath() {
-                return Const.myFile_outFile;
+                return Const.myDocument_outFile;
             }
 
             @Override

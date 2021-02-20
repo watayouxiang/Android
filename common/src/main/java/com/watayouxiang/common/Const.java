@@ -34,11 +34,11 @@ public interface Const {
     String myAndroid_outFile = project_dir + "/myAndroid/README.md";
 
     // ====================================================================================
-    // myFile
+    // myDocument
     // ====================================================================================
 
-    String myFile_inDir = project_dir + "/myFile/document";
-    String myFile_outFile = project_dir + "/myFile/README.md";
+    String myDocument_inDir = project_dir + "/myDocument/document";
+    String myDocument_outFile = project_dir + "/myDocument/README.md";
 
     // ====================================================================================
     // myJava

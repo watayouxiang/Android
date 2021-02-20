@@ -1,22 +1,21 @@
-package com.watayouxiang.myandroid;
+package com.watayouxiang.common;
 
-import com.watayouxiang.common.Const;
 import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
 // README.md 文件生成器
-public class MDProducer {
+public class MDProducer_MyJava {
 
     public static void main(String[] args) {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return Const.myAndroid_inDir;
+                return Const.myJava_inDir;
             }
 
             @Override
             public String getOutFilePath() {
-                return Const.myAndroid_outFile;
+                return Const.myJava_outFile;
             }
 
             @Override
