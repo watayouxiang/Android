@@ -3,23 +3,32 @@
     package="com.watayouxiang.myandroid">
 
     <application>
+
+        <!--activity-->
         <activity android:name=".animation.AnimationDemo" />
         <activity android:name=".animation.AnimationDrawableActivity" />
         <activity android:name=".animation.AnimatorActivity" />
         <activity android:name=".animation.AnimationActivity" />
         <activity android:name=".animation.tida.TidaAnimatorActivity" />
+
         <activity android:name=".service.local_service.LocalServiceActivity" />
         <activity android:name=".service.remote_service.RemoteServiceActivity" />
         <activity android:name=".service.intent_service.IntentServiceActivity" />
+
         <activity android:name=".view.Canvas_BaseActivity" />
         <activity android:name=".view.Path_BaseActivity" />
         <activity android:name=".view.View_Base01Activity" />
         <activity android:name=".view.ViewDemo" />
+
         <activity android:name=".handler.HandlerDemo" />
+
         <activity android:name=".service.ServiceDemo" />
+
         <activity android:name=".MyAndroidDemo" />
 
+        <!--service-->
         <service android:name=".service.intent_service.IntentService" />
         <service android:name=".service.local_service.LocalService" />
+
     </application>
 </manifest>
