@@ -14,10 +14,8 @@
         <activity android:name=".view.Canvas_BaseActivity" />
         <activity android:name=".view.View_Base01Activity" />
         <activity android:name=".view._View_" />
-        <activity android:name=".activity._Activity_" />
         <activity android:name=".handler._Handler_" />
         <activity android:name=".service._Service_" />
-        <activity android:name=".others._Others_" />
         <activity android:name="._MyAndroid_" />
 
         <service android:name=".service.intent_service.IntentService" />

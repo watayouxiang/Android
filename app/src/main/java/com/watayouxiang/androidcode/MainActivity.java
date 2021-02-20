@@ -19,18 +19,11 @@ public class MainActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addWeb(this, "「github homepage」", Const.github_url)
-
-                .addSection("Android")
-                .addWeb(this, Const.myAndroid_md_url)
+                .addWeb(this, "github homepage", Const.github_url)
                 .addActivity(this, _MyAndroid_.class)
-
-                .addSection("Java")
-                .addWeb(this, Const.myJava_md_url)
-
-                .addSection("Document")
-                .addWeb(this, Const.myDocument_md_url)
-
+                .addWeb(this, "Android", Const.myAndroid_md_url)
+                .addWeb(this, "Java", Const.myJava_md_url)
+                .addWeb(this, "Document", Const.myDocument_md_url)
                 ;
     }
 }
