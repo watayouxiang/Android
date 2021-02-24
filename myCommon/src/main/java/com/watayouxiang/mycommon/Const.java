@@ -57,4 +57,10 @@ public interface Const {
     String myKotlin_dir = project_dir + "/myKotlin/src/main/java/com/watayouxiang/mykotlin";
     String myKotlin_md_path = project_dir + "/mykotlin/README.md";
 
+    // ====================================================================================
+    // myKotlin
+    // ====================================================================================
+
+    String androidutils_dir = project_dir + "/androidutils/src/main/java/com/watayouxiang/androidutils";
+    String androidutils_md_path = project_dir + "/androidutils/README.md";
 }
