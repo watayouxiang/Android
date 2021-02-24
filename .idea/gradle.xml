@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/myCommon" />
             <option value="$PROJECT_DIR$/myDocument" />
             <option value="$PROJECT_DIR$/myJava" />
+            <option value="$PROJECT_DIR$/myKotlin" />
             <option value="$PROJECT_DIR$/remoteService" />
           </set>
         </option>
