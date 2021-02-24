@@ -49,4 +49,12 @@ public interface Const {
 
     String myJava_md_url = github_url + "/myJava/README.md";
     String myJava_md_path = project_dir + "/myJava/README.md";
+
+    // ====================================================================================
+    // myKotlin
+    // ====================================================================================
+
+    String myKotlin_dir = project_dir + "/myKotlin/src/main/java/com/watayouxiang/mykotlin";
+    String myKotlin_md_path = project_dir + "/mykotlin/README.md";
+
 }

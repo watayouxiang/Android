@@ -4,7 +4,7 @@ import com.watayouxiang.demoshell.tool.MdFileData;
 import com.watayouxiang.demoshell.tool.MdFileTool;
 
 // README.md 文件生成器
-public class MDMyDocument {
+public class MDMyKotlin {
 
     /**
      * "android工程" 跑不了 "java main 方法" 的解决办法：
@@ -16,12 +16,12 @@ public class MDMyDocument {
         new MdFileTool().start(new MdFileData() {
             @Override
             public String getInDirPath() {
-                return Const.myDocument_dir;
+                return Const.myKotlin_dir;
             }
 
             @Override
             public String getOutFilePath() {
-                return Const.myDocument_md_path;
+                return Const.myKotlin_md_path;
             }
 
             @Override
