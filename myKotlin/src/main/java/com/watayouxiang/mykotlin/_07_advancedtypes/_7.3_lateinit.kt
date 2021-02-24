@@ -3,7 +3,7 @@ package com.watayouxiang.mykotlin._07_advancedtypes
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.watayouxiang.kotlindemo.R
+import com.watayouxiang.mykotlin.R
 
 /**
  * <pre>
