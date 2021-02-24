@@ -1,3 +1,4 @@
+include ':androidutils'
 include ':myKotlin'
 include ':myCommon'
 include ':myAndroid'
