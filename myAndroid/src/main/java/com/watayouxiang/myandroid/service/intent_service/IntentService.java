@@ -14,7 +14,7 @@ import com.watayouxiang.myandroid.service.LogUtil;
 import java.lang.ref.WeakReference;
 
 public class IntentService extends android.app.IntentService {
-    private MyHandler handler = new MyHandler(this);
+    private final MyHandler handler = new MyHandler(this);
 
     private static class MyHandler extends Handler {
         private final WeakReference<Context> reference;
@@ -38,29 +38,7 @@ public class IntentService extends android.app.IntentService {
      * 这里必须要有无参构造函数，否则：RuntimeException
      */
     public IntentService() {
-        super("IntentServiceDemo");
-    }
-
-    /**
-     * 会创建独立的 worker 线程来处理 onHandleIntent() 方法实现的代码，处理耗时操作。
-     * 请求处理完成后，IntentService 会自动停止，无需手动停止;
-     */
-    @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        LogUtil.d("onHandleIntent: threadName=" + Thread.currentThread().getName());
-
-        Message message = new Message();
-        message.what = 1300;
-        message.obj = "DelayMessage";
-        handler.sendMessageDelayed(message, 3000);
-    }
-
-    @Override
-    public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        assert intent != null;
-        LogUtil.d("onStartCommand: intent=" + intent.getStringExtra("start")
-                + ", threadName=" + Thread.currentThread().getName());
-        return super.onStartCommand(intent, flags, startId);
+        super("构造参数");
     }
 
     @Override
@@ -70,9 +48,30 @@ public class IntentService extends android.app.IntentService {
     }
 
     @Override
+    public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
+        LogUtil.d("onStartCommand: intent=" + intent.getStringExtra("start"));
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
     public void onStart(@Nullable Intent intent, int startId) {
         super.onStart(intent, startId);
         LogUtil.d("onStart");
+    }
+
+
+    /**
+     * 会创建独立的 worker 线程来处理 onHandleIntent() 方法实现的代码，处理耗时操作。
+     * 请求处理完成后，IntentService 会自动停止，无需手动停止;
+     */
+    @Override
+    protected void onHandleIntent(@Nullable Intent intent) {
+        LogUtil.d("onHandleIntent: intent=" + intent.getStringExtra("start"));
+
+        Message message = new Message();
+        message.what = 1300;
+        message.obj = "DelayMessage";
+        handler.sendMessageDelayed(message, 3000);
     }
 
     @Override
@@ -84,7 +83,7 @@ public class IntentService extends android.app.IntentService {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtil.d("onBind");
+        LogUtil.d("onBind: intent=" + intent.getStringExtra("start"));
         return super.onBind(intent);
     }
 }
