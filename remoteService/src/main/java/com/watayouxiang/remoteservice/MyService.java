@@ -14,9 +14,11 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 public class MyService extends Service {
+
     private static final int sayHi = 1001;
     private static final int openServiceApp = 1002;
-    private MyHandler handler = new MyHandler(this);
+
+    private final MyHandler handler = new MyHandler(this);
 
     private static class MyHandler extends Handler {
         private final WeakReference<Context> reference;
@@ -46,17 +48,18 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtil.d("远程服务 - 创建, thread=" + Thread.currentThread().getName());
+        LogUtil.d("远程服务 - onCreate");
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtil.d("远程服务 - 绑定, thread=" + Thread.currentThread().getName());
+        LogUtil.d("远程服务 - onBind");
+
         return new RemoteServiceApi.Stub() {
             @Override
             public void sayHi() throws RemoteException {
-                LogUtil.d("远程服务 - sayHi, thread=" + Thread.currentThread().getName());
+                LogUtil.d("远程服务 - sayHi");
 
                 Message message = Message.obtain();
                 message.what = sayHi;
@@ -66,7 +69,7 @@ public class MyService extends Service {
 
             @Override
             public void openServiceApp() throws RemoteException {
-                LogUtil.d("远程服务 - openServiceApp, thread=" + Thread.currentThread().getName());
+                LogUtil.d("远程服务 - openServiceApp");
 
                 handler.sendEmptyMessage(openServiceApp);
             }
@@ -76,6 +79,6 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtil.d("远程服务 - 销毁, thread=" + Thread.currentThread().getName());
+        LogUtil.d("远程服务 - onDestroy");
     }
 }
