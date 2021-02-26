@@ -2,10 +2,12 @@ package com.watayouxiang.remoteservice;
 
 import android.util.Log;
 
-class LogUtil {
+import java.util.Locale;
+
+public class LogUtil {
     private static final String TAG = "ServiceLog";
 
-    static void d(String txt) {
-        Log.d(TAG, String.valueOf(txt));
+    public static void d(String txt) {
+        Log.d(TAG, String.format(Locale.getDefault(), "[线程名:%s] %s", Thread.currentThread().getName(), txt));
     }
 }

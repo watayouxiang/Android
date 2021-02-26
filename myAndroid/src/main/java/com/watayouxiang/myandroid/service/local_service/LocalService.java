@@ -90,8 +90,7 @@ public class LocalService extends Service {
     // ================================================================
 
     private void playMusic() {
-        String threadInfo = Thread.currentThread().toString();
-        LogUtil.d(threadInfo + " 音乐开始播放");
+        LogUtil.d("音乐开始播放");
     }
 
     private class MyBinder extends Binder implements Api {

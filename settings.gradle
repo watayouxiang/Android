@@ -4,6 +4,7 @@ include ':myCommon'
 include ':myAndroid'
 include ':myDocument'
 include ':myJava'
+
 include ':remoteService'
 include ':app'
 
