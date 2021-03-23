@@ -27,7 +27,7 @@
         <activity android:name=".MyAndroidDemo" />
 
         <!--service-->
-        <service android:name=".service.intent_service.IntentService" />
+        <service android:name=".service.intent_service.MyIntentService" />
         <service android:name=".service.local_service.LocalService" />
 
     </application>

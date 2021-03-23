@@ -8,13 +8,10 @@ import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 
 public class IntentServiceActivity extends ListActivity {
-    private Intent intent;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        intent = new Intent(IntentServiceActivity.this, IntentService.class);
-        intent.putExtra("start", "Bundle数据");
     }
 
     @Override
@@ -25,6 +22,8 @@ public class IntentServiceActivity extends ListActivity {
                 .addClick("startService", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent intent = new Intent(IntentServiceActivity.this, MyIntentService.class);
+                        intent.putExtra(MyIntentService.KEY_DATA, "Bundle数据");
                         startService(intent);
                     }
                 });

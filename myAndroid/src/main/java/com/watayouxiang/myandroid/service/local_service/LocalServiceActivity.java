@@ -27,6 +27,7 @@ public class LocalServiceActivity extends ListActivity {
     protected ListData getListData() {
         return new ListData()
                 .addSection("TAG: LogUtil")
+
                 .addSection("启动服务")
                 .addClick("startService", new View.OnClickListener() {
                     @Override
@@ -40,6 +41,7 @@ public class LocalServiceActivity extends ListActivity {
                         stopService(intent);
                     }
                 })
+
                 .addSection("绑定服务")
                 .addClick("bindService", new View.OnClickListener() {
                     @Override
@@ -62,7 +64,8 @@ public class LocalServiceActivity extends ListActivity {
                         //illegalArgumentException: Service not registered
                         unbindService(connection);
                     }
-                });
+                })
+                ;
     }
 
     private class MyServiceConnection implements ServiceConnection {

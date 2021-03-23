@@ -1,5 +1,6 @@
 package com.watayouxiang.myandroid.service.intent_service;
 
+import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -13,7 +14,25 @@ import com.watayouxiang.myandroid.service.LogUtil;
 
 import java.lang.ref.WeakReference;
 
-public class IntentService extends android.app.IntentService {
+/**
+ * <pre>
+ *     author : TaoWang
+ *     e-mail : watayouxiang@qq.com
+ *     time   : 3/23/21
+ *     desc   :
+ *
+ *     onCreate
+ *     onStartCommand: data = Bundle数据
+ *     onHandleIntent: data = Bundle数据（子线程）
+ *     onStart
+ *     onDestroy
+ *
+ * </pre>
+ */
+public class MyIntentService extends IntentService {
+
+    public static final String KEY_DATA = "start";
+
     private final MyHandler handler = new MyHandler(this);
 
     private static class MyHandler extends Handler {
@@ -37,7 +56,7 @@ public class IntentService extends android.app.IntentService {
     /**
      * 这里必须要有无参构造函数，否则：RuntimeException
      */
-    public IntentService() {
+    public MyIntentService() {
         super("构造参数");
     }
 
@@ -49,16 +68,9 @@ public class IntentService extends android.app.IntentService {
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        LogUtil.d("onStartCommand: intent=" + intent.getStringExtra("start"));
+        LogUtil.d("onStartCommand: data = " + intent.getStringExtra(KEY_DATA));
         return super.onStartCommand(intent, flags, startId);
     }
-
-    @Override
-    public void onStart(@Nullable Intent intent, int startId) {
-        super.onStart(intent, startId);
-        LogUtil.d("onStart");
-    }
-
 
     /**
      * 会创建独立的 worker 线程来处理 onHandleIntent() 方法实现的代码，处理耗时操作。
@@ -66,12 +78,18 @@ public class IntentService extends android.app.IntentService {
      */
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        LogUtil.d("onHandleIntent: intent=" + intent.getStringExtra("start"));
+        LogUtil.d("onHandleIntent: data = " + intent.getStringExtra(KEY_DATA));
 
         Message message = new Message();
         message.what = 1300;
         message.obj = "DelayMessage";
         handler.sendMessageDelayed(message, 3000);
+    }
+
+    @Override
+    public void onStart(@Nullable Intent intent, int startId) {
+        super.onStart(intent, startId);
+        LogUtil.d("onStart");
     }
 
     @Override
@@ -83,7 +101,7 @@ public class IntentService extends android.app.IntentService {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtil.d("onBind: intent=" + intent.getStringExtra("start"));
+        LogUtil.d("onBind: data = " + intent.getStringExtra(KEY_DATA));
         return super.onBind(intent);
     }
 }

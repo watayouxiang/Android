@@ -32,6 +32,7 @@ public class RemoteServiceActivity extends ListActivity {
     protected ListData getListData() {
         return new ListData()
                 .addSection("TAG: LogUtil")
+
                 .addSection("启动远程服务")
                 .addClick("startService", new View.OnClickListener() {
                     @Override
@@ -45,6 +46,7 @@ public class RemoteServiceActivity extends ListActivity {
                         stopService(intent);
                     }
                 })
+
                 .addSection("绑定远程服务")
                 .addClick("bindService", new View.OnClickListener() {
                     @Override

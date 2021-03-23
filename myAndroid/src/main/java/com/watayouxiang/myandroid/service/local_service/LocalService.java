@@ -89,10 +89,6 @@ public class LocalService extends Service {
     // 服务
     // ================================================================
 
-    private void playMusic() {
-        LogUtil.d("音乐开始播放");
-    }
-
     private class MyBinder extends Binder implements Api {
         @Override
         public void playMusic() {
@@ -104,13 +100,17 @@ public class LocalService extends Service {
         void playMusic();
     }
 
+    private void playMusic() {
+        LogUtil.d("音乐开始播放");
+    }
+
     // ================================================================
     // 广播
     // ================================================================
 
     private ScreenBroadcastReceiver receiver;
 
-    private class ScreenBroadcastReceiver extends BroadcastReceiver {
+    private static class ScreenBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
