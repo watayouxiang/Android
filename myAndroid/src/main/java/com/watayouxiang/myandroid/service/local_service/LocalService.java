@@ -16,11 +16,15 @@ import com.watayouxiang.myandroid.service.LogUtil;
  * 隐式启动：
  * startService(intent);
  * stopService(intent);
+ * <p>
  * onCreate -> onStartCommand -> onStart -> onDestroy
+ *
+ *
  * <p>
  * 绑定启动：
  * bindService(intent, connection, BIND_AUTO_CREATE);
  * unbindService(connection);
+ * <p>
  * onCreate -> onBind -> onUnbind -> onDestroy
  */
 public class LocalService extends Service {
@@ -65,6 +69,11 @@ public class LocalService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         LogUtil.d("onStartCommand");
+
+//        START_NOT_STICKY// 非粘性，如果服务被回收了，不会尝试启动
+//        START_STICKY// 粘性，如果服务被回收了，尝试启动
+//        START_REDELIVER_INTENT// 重新传入intent，尝试启动 同时传入最后保留的intent
+
         return super.onStartCommand(intent, flags, startId);
     }
 
