@@ -5,6 +5,8 @@
     <application>
 
         <!--activity-->
+        <activity android:name=".MyAndroidDemo" />
+
         <activity android:name=".animation.AnimationDemo" />
         <activity android:name=".animation.AnimationDrawableActivity" />
         <activity android:name=".animation.AnimatorActivity" />
@@ -24,11 +26,18 @@
 
         <activity android:name=".service.ServiceDemo" />
 
-        <activity android:name=".MyAndroidDemo" />
+        <activity android:name=".broadcast.BroadcastDemoActivity" />
 
         <!--service-->
         <service android:name=".service.intent_service.MyIntentService" />
         <service android:name=".service.local_service.LocalService" />
+
+        <!--broadcast-->
+        <receiver android:name=".broadcast.DateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
