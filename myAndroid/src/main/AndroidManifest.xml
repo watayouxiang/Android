@@ -27,7 +27,7 @@
         <activity android:name=".service.ServiceDemo" />
 
         <activity android:name=".broadcast_receiver.BroadcastDemoActivity" />
-        <activity android:name=".content_provider.ContentProviderDemoActivity" />
+        <activity android:name=".content_provider.ContentResolverDemoActivity" />
 
         <!--service-->
         <service android:name=".service.intent_service.MyIntentService" />

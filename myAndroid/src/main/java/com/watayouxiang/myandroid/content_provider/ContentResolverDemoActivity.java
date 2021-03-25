@@ -28,7 +28,7 @@ import java.util.List;
  *     desc   :
  * </pre>
  */
-public class ContentProviderDemoActivity extends Activity {
+public class ContentResolverDemoActivity extends Activity {
 
     private static final int CONTACTS_REQUEST_CODE = 1001;
 
