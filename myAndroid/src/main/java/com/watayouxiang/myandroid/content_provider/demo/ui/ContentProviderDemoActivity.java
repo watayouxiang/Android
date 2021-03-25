@@ -7,9 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -108,16 +108,20 @@ public class ContentProviderDemoActivity extends AppCompatActivity {
             case 0://修改
                 int position = item.getIntent().getIntExtra(POSITION_KEY, 0);
                 PersonBean bean = mList.get(position);
-                Intent intent = new Intent(this, AddOrModifyActivity.class);
-                intent.putExtra(IS_ADD_KEY, false);
-                intent.putExtra(PERSON_BEAN_KEY, bean);
-                startActivity(intent);
+                startAddOrModifyActivity(bean);
                 break;
             case 1://删除
                 deletePerson(item);
                 break;
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void startAddOrModifyActivity(PersonBean bean) {
+        Intent intent = new Intent(this, AddOrModifyActivity.class);
+        intent.putExtra(IS_ADD_KEY, false);
+        intent.putExtra(PERSON_BEAN_KEY, bean);
+        startActivity(intent);
     }
 
     private void deletePerson(MenuItem item) {
