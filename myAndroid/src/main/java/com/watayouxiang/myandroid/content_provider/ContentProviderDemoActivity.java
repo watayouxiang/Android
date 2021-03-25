@@ -47,8 +47,21 @@ public class ContentProviderDemoActivity extends Activity {
         if (!isGranted) {
             requestPermissions(this);
         } else {
-            getContactsData();
+            queryContact();
         }
+    }
+
+    /**
+     * ContentResolver 修改
+     */
+    private boolean deleteContact(long id) {
+        // 删除 ContactsContract.RawContacts，而不是 ContactsContract.Data？
+        // 因为 ContactsContract.RawContacts 是主键，ContactsContract.Data 是外键
+        // 所以删除 ContactsContract.RawContacts 后，会自动删除 ContactsContract.Data 中的数据
+        int result = resolver.delete(ContactsContract.RawContacts.CONTENT_URI,
+                ContactsContract.RawContacts._ID + "=?",
+                new String[]{String.valueOf(id)});
+        return result > 0;
     }
 
     /**
@@ -68,7 +81,6 @@ public class ContentProviderDemoActivity extends Activity {
      * ContentResolver 插入
      */
     private boolean insertContact(String name, String phone) {
-        
         // 首先向 raw_contacts 表中插入一条空记录，目的是获取 raw_contact_id
         ContentValues values = new ContentValues();
         Uri rawContactUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
@@ -94,7 +106,7 @@ public class ContentProviderDemoActivity extends Activity {
     /**
      * ContentResolver 查询
      */
-    private void getContactsData() {
+    private void queryContact() {
         Cursor cursor = resolver.query(ContactsContract.RawContacts.CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
             ContactsBean bean = new ContactsBean();
@@ -138,7 +150,7 @@ public class ContentProviderDemoActivity extends Activity {
 
     private void notifyReqPermissionsSuccess() {
         // 通知请求权限成功
-        getContactsData();
+        queryContact();
     }
 
     public boolean checkSelfPermission(Context context) {
