@@ -67,36 +67,28 @@ public class ContentProviderDemoActivity extends Activity {
     /**
      * ContentResolver 插入
      */
-    private boolean insertContact() {
-        if (mContacts == null || mContacts.size() == 0) return false;
+    private boolean insertContact(String name, String phone) {
+        
+        // 首先向 raw_contacts 表中插入一条空记录，目的是获取 raw_contact_id
+        ContentValues values = new ContentValues();
+        Uri rawContactUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
+        long rawContactId = ContentUris.parseId(rawContactUri);
 
-        for (ContactsBean bean : mContacts) {
-            // 首先向 raw_contacts 表中插入一条空记录，目的是获取 raw_contact_id
-            ContentValues values = new ContentValues();
-            Uri rawContactUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
-            long rawContactId = ContentUris.parseId(rawContactUri);
+        // 插入联系人姓名
+        values.clear();
+        values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+        values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
+        values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME, name);
+        Uri nameUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
 
-            // 插入联系人姓名
-            values.clear();
-            values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
-            values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
-            values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME, bean.name);
-            Uri nameUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
+        // 插入手机号
+        values.clear();
+        values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+        values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+        values.put(ContactsContract.CommonDataKinds.Phone.NUMBER, phone);
+        Uri phoneUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
 
-            // 插入手机号
-            values.clear();
-            values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
-            values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
-            values.put(ContactsContract.CommonDataKinds.Phone.NUMBER, bean.phone);
-            Uri phoneUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
-
-            boolean success = nameUri != null && phoneUri != null;
-            if (!success) {
-                return false;
-            }
-        }
-
-        return true;
+        return nameUri != null && phoneUri != null;
     }
 
     /**
