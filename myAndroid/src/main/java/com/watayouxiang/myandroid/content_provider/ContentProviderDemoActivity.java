@@ -52,6 +52,19 @@ public class ContentProviderDemoActivity extends Activity {
     }
 
     /**
+     * ContentResolver 修改
+     */
+    private boolean updateContact(String name, String phone, long id) {
+        ContentValues values = new ContentValues();
+        values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME, name);
+        values.put(ContactsContract.CommonDataKinds.Phone.NUMBER, phone);
+        int result = resolver.update(ContactsContract.Data.CONTENT_URI, values,
+                ContactsContract.Data.RAW_CONTACT_ID + "=?",
+                new String[]{String.valueOf(id)});
+        return result > 0;
+    }
+
+    /**
      * ContentResolver 插入
      */
     private boolean insertContact() {
