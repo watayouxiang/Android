@@ -5,7 +5,7 @@
     <application>
 
 
-        <activity android:name=".MyAndroidDemo" />
+        <activity android:name=".MyAndroidActivity" />
 
         <!--animation-->
         <activity android:name=".animation.AnimationDemo" />

@@ -9,7 +9,7 @@ import com.watayouxiang.myandroid.handler.HandlerDemo;
 import com.watayouxiang.myandroid.service.ServiceDemo;
 import com.watayouxiang.myandroid.view.ViewDemo;
 
-public class MyAndroidDemo extends ListActivity {
+public class MyAndroidActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()

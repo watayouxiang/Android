@@ -2,7 +2,7 @@ package com.watayouxiang.androidcode;
 
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.myandroid.MyAndroidDemo;
+import com.watayouxiang.myandroid.MyAndroidActivity;
 import com.watayouxiang.mycommon.Const;
 
 public class MainActivity extends ListActivity {
@@ -20,7 +20,7 @@ public class MainActivity extends ListActivity {
     protected ListData getListData() {
         return new ListData()
                 .addWeb(this, "github homepage", Const.github_url)
-                .addActivity(this, MyAndroidDemo.class)
+                .addActivity(this, MyAndroidActivity.class)
                 ;
     }
 }
