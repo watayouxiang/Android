@@ -3,7 +3,7 @@ package com.watayouxiang.myandroid;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.myandroid.animation.AnimationDemo;
-import com.watayouxiang.myandroid.broadcast_receiver.BroadcastDemoActivity;
+import com.watayouxiang.myandroid.broadcast.BroadcastDemoActivity;
 import com.watayouxiang.myandroid.handler.HandlerDemo;
 import com.watayouxiang.myandroid.service.ServiceDemo;
 import com.watayouxiang.myandroid.view.ViewDemo;

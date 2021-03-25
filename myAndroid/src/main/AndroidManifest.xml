@@ -26,15 +26,15 @@
 
         <activity android:name=".service.ServiceDemo" />
 
-        <activity android:name=".broadcast_receiver.BroadcastDemoActivity" />
-        <activity android:name=".content_provider.ContentResolverDemoActivity" />
+        <activity android:name=".broadcast.BroadcastDemoActivity" />
+        <activity android:name=".provider.ContentResolverDemoActivity" />
 
         <!--service-->
         <service android:name=".service.intent_service.MyIntentService" />
         <service android:name=".service.local_service.LocalService" />
 
         <!--broadcast-->
-        <receiver android:name=".broadcast_receiver.DateChangedReceiver">
+        <receiver android:name=".broadcast.DateChangedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>

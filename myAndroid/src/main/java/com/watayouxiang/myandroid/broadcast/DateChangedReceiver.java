@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.broadcast_receiver;
+package com.watayouxiang.myandroid.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
