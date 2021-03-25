@@ -3,9 +3,12 @@ package com.watayouxiang.myandroid.content_provider;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 
@@ -48,6 +51,44 @@ public class ContentProviderDemoActivity extends Activity {
         }
     }
 
+    /**
+     * ContentResolver 插入
+     */
+    private boolean insertContact() {
+        if (mContacts == null || mContacts.size() == 0) return false;
+
+        for (ContactsBean bean : mContacts) {
+            // 首先向 raw_contacts 表中插入一条空记录，目的是获取 raw_contact_id
+            ContentValues values = new ContentValues();
+            Uri rawContactUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
+            long rawContactId = ContentUris.parseId(rawContactUri);
+
+            // 插入联系人姓名
+            values.clear();
+            values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+            values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
+            values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME, bean.name);
+            Uri nameUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
+
+            // 插入手机号
+            values.clear();
+            values.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+            values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+            values.put(ContactsContract.CommonDataKinds.Phone.NUMBER, bean.phone);
+            Uri phoneUri = resolver.insert(ContactsContract.RawContacts.CONTENT_URI, values);
+
+            boolean success = nameUri != null && phoneUri != null;
+            if (!success) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * ContentResolver 查询
+     */
     private void getContactsData() {
         Cursor cursor = resolver.query(ContactsContract.RawContacts.CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
