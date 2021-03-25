@@ -1,4 +1,4 @@
-package com.watayouxiang.myandroid.provider;
+package com.watayouxiang.myandroid.content_provider;
 
 import android.Manifest;
 import android.app.Activity;
