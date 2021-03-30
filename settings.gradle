@@ -5,4 +5,4 @@ include ':androidutils'
 include ':mykotlin'
 include ':myjava'
 
-rootProject.name = 'AndroidKit'
+rootProject.name = 'Android'
