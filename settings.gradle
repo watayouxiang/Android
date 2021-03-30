@@ -1,8 +1,8 @@
 include ':androiddemo'
-include ':androidutils'
-include ':myKotlin'
-include ':myJava'
-
 include ':remoteService'
 
-rootProject.name = 'Android'
+include ':androidutils'
+include ':mykotlin'
+include ':myjava'
+
+rootProject.name = 'AndroidKit'

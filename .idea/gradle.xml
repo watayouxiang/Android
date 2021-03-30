@@ -14,8 +14,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/androiddemo" />
             <option value="$PROJECT_DIR$/androidutils" />
-            <option value="$PROJECT_DIR$/myJava" />
-            <option value="$PROJECT_DIR$/myKotlin" />
+            <option value="$PROJECT_DIR$/myjava" />
+            <option value="$PROJECT_DIR$/mykotlin" />
             <option value="$PROJECT_DIR$/remoteService" />
           </set>
         </option>
