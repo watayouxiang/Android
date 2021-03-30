@@ -18,7 +18,7 @@
 		- [将项目提交至jcenter第二篇.md](https://github.com/watayouxiang/Android/tree/master/myDocument/document/代码托管/将项目提交至jcenter第二篇.md)
 		- [批处理文件.md](https://github.com/watayouxiang/Android/tree/master/myDocument/document/代码托管/批处理文件.md)
 	- [快捷键](https://github.com/watayouxiang/Android/tree/master/myDocument/document/快捷键)
-		- [IntelliJ IDEA 快捷键.md](https://github.com/watayouxiang/Android/tree/master/myDocument/document/快捷键/IntelliJ IDEA 快捷键.md)
+		- [IntelliJ_IDEA快捷键.md](https://github.com/watayouxiang/Android/tree/master/myDocument/document/快捷键/IntelliJ_IDEA快捷键.md)
 	- [数据结构](https://github.com/watayouxiang/Android/tree/master/myDocument/document/数据结构)
 		- [数据结构和算法.png](https://github.com/watayouxiang/Android/tree/master/myDocument/document/数据结构/数据结构和算法.png)
 		- [数据结构概念.md](https://github.com/watayouxiang/Android/tree/master/myDocument/document/数据结构/数据结构概念.md)
