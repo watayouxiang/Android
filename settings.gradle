@@ -1,7 +1,6 @@
 include ':androiddemo'
 include ':androidutils'
 include ':myKotlin'
-include ':myDocument'
 include ':myJava'
 
 include ':remoteService'
