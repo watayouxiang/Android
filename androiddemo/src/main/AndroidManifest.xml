@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.watayouxiang.androiddemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name="MyApp"
+        android:theme="@style/Theme.Android">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!--animation-->
+        <activity android:name=".animation.AnimationDemoActivity" />
+        <activity android:name=".animation.AnimationDrawableActivity" />
+        <activity android:name=".animation.AnimatorActivity" />
+        <activity android:name=".animation.AnimationActivity" />
+        <activity android:name=".animation.tida.TidaAnimatorActivity" />
+
+        <!--service-->
+        <activity android:name=".service.ServiceDemoActivity" />
+        <activity android:name=".service.local.LocalServiceActivity" />
+        <activity android:name=".service.remote.RemoteServiceActivity" />
+        <activity android:name=".service.intent.IntentServiceActivity" />
+
+        <service android:name=".service.intent.MyIntentService" />
+        <service android:name=".service.local.LocalService" />
+
+        <!--view-->
+        <activity android:name=".view.Canvas_BaseActivity" />
+        <activity android:name=".view.Path_BaseActivity" />
+        <activity android:name=".view.View_Base01Activity" />
+        <activity android:name=".view.ViewDemoActivity" />
+
+        <!--handler-->
+        <activity android:name=".handler.HandlerDemoActivity" />
+
+        <!--broadcast receiver-->
+        <activity android:name=".receiver.BroadcastDemoActivity" />
+
+        <receiver android:name=".receiver.DateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!--content provider-->
+        <activity android:name=".provider.ContentResolverDemoActivity" />
+        <activity android:name=".provider.demo.ui.AddOrModifyActivity" />
+        <activity android:name=".provider.demo.ui.ContentProviderDemoActivity" />
+
+        <provider
+            android:name=".provider.demo.db.PersonProvider"
+            android:authorities="com.watayouxiang.myandroid.provider.demo.db.PersonProvider" />
+
+
+    </application>
+
+</manifest>

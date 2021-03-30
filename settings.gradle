@@ -1,11 +1,9 @@
+include ':androiddemo'
 include ':androidutils'
 include ':myKotlin'
-include ':myCommon'
-include ':myAndroid'
 include ':myDocument'
 include ':myJava'
 
 include ':remoteService'
-include ':app'
 
 rootProject.name = 'Android'

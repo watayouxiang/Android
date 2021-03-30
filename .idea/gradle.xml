@@ -12,10 +12,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androiddemo" />
             <option value="$PROJECT_DIR$/androidutils" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/myAndroid" />
-            <option value="$PROJECT_DIR$/myCommon" />
             <option value="$PROJECT_DIR$/myDocument" />
             <option value="$PROJECT_DIR$/myJava" />
             <option value="$PROJECT_DIR$/myKotlin" />
