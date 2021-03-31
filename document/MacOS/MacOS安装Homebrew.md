@@ -1,4 +1,4 @@
-# MacOS安装brew
+# MacOS安装Homebrew
 
 > 参考来源：https://blog.csdn.net/mehent/article/details/108180940
 
