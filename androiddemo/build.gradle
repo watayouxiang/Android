@@ -5,6 +5,7 @@ apply plugin: 'com.android.application'
 // 应用自己的插件
 apply plugin: 'com.imooc.router'
 
+// 向路由插件传递参数
 router {
     wikiDir getRootDir().absolutePath
 }
