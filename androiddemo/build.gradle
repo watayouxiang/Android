@@ -54,6 +54,7 @@ dependencies {
     /**
      * 测试注解处理器
      *
+     * 异常处理：Mac OS 升级到11.0.1后 ./gradlew :androiddemo:assembleDebug -q 编译项目出错
      * 资源库中找到 Internet Plug-Ins 文件夹，将文件夹名改为 InternetPlug-Ins
      * 参考：https://www.jianshu.com/p/3c1ad32a1def
      *
