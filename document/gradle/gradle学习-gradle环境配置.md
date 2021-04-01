@@ -48,13 +48,3 @@ $ gradle -v
 $ gradle -version
 ```
 
-
-
-## 用命令行生成gradle-wrapper
-
-
-
-```
-$ gradle wrapper
-```
-
