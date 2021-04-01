@@ -1,5 +1,7 @@
 ## gradle构建脚本基础
 
+
+
 - setting.gradle
   - 声明当前project包含了哪些module
 - build.grade
@@ -81,6 +83,51 @@
     // 可以得出结论：task是在 配置阶段之后，构建结束之前 执行的
     ```
 
-  - 
 
 
+## gradle几个主要角色
+
+
+
+- 初始化阶段 - rootProject
+
+  - 在初始化阶段之前，就能拿到 rootProject 对象了
+
+  - ```
+    // 在setting.gradle写入
+    println("我的项目路径：${rootProject.projectDir}")
+    
+    $ ./gradlew clean -q
+    ```
+
+- 配置阶段 - project
+
+  - 在配置阶段完成后，能拿到 project 对象
+
+  - ```
+    // 在 setting.gradle 中使用 project对象
+    gradle.addBuildListener(new BuildAdapter(){
+        @Override
+        void projectsEvaluated(Gradle gradle) {
+            super.projectsEvaluated(gradle)
+            println("project 配置阶段完成")
+            
+            gradle.rootProject.childProjects.each {	name, proj ->
+            	println("module名称是 $name, 路径是 ${proj.getProjectDir()}")
+            }
+        }
+    })
+    
+    // 执行如下命令
+    $ ./gradlew clean -q
+    ```
+
+  - ```
+    // 在 app module 的 build.gradle 中使用 project对象
+    println("我是app module，我的路径是：${project.projectDir}")
+    
+    // 执行如下命令
+    $ ./gradlew clean -q
+    ```
+
+- 执行阶段 - task
