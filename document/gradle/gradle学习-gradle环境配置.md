@@ -31,11 +31,14 @@ $ open ~/.bash_profile
 // 添加如下
 ------------------------------------------
 # Gradle
-GRADE_HOME=/Users/TaoWang/.gradle/wrapper/dists/gradle-6.5.1-all/cdund22i8guosqylfo49op4dv/gradle-6.5.1
+GRADE_HOME=/Users/TaoWang/.gradle/wrapper/dists/gradle-6.5-all/2oz4ud9k3tuxjg84bbf55q0tn/gradle-6.5
 export GRADE_HOME
-export PATH=${PATH}:/Users/TaoWang/.gradle/wrapper/dists/gradle-6.5.1-all/cdund22i8guosqylfo49op4dv/gradle-6.5.1/bin 
+export PATH=${PATH}:/Users/TaoWang/.gradle/wrapper/dists/gradle-6.5-all/2oz4ud9k3tuxjg84bbf55q0tn/gradle-6.5/bin 
 # Gradle END
 ------------------------------------------
+
+// 环境变量立即生效
+$ source ~/.bash_profile
 
 // 查看所有环境变量
 $ echo $PATH
