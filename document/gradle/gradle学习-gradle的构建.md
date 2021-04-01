@@ -131,3 +131,40 @@
     ```
 
 - 执行阶段 - task
+
+  - gradle最小的执行单元，一个project可以有多个task，task之间可以相互依赖的，靠相互依赖的关系来串成一个有向无环图
+
+  - 执行任务
+
+    - ```
+      // 在app module 的 build.gradle中写入
+      task testTask(){
+      	doLast{
+      		println(“我是 testTask 任务”)
+      	}
+      }
+      
+      $ ./gradlew :app:testTask -q
+      ```
+
+  - 任务的依赖
+
+    - ```
+      // 在app module 的 build.gradle中写入
+      task testTask(){
+      	doLast{
+      		println(“我是 testTask 任务”)
+      	}
+      }
+      
+      task test2(){
+      	dependsOn testTask
+      	doLast{
+      		println(“我是 testTask 任务”)
+      	}
+      }
+      
+      $ ./gradlew :app:test2 -q
+      
+      // 结论：test2 依赖于 testTask
+      ```

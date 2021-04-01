@@ -1,7 +1,3 @@
-# Gradle笔记
-
-
-
 ## 监听构建生命周期回调
 
 - 在 setting.gradle 配置如下代码监听构建生命周期回调
@@ -104,10 +100,5 @@ this.project.afterEvaluate {
 > 1、此时 service_provider 称为下面三个 project 的 parentProject
 >
 > 2、RootProject 永远指的是 ASPProj
-
-
-
-## Gradle的Task和Transform
-
 
 
