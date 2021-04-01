@@ -1,5 +1,15 @@
 apply plugin: 'com.android.application'
+
+//////////////////////////////////////////
+
+// 应用自己的插件
 apply plugin: 'com.imooc.router'
+
+router {
+    wikiDir getRootDir().absolutePath
+}
+
+//////////////////////////////////////////
 
 android {
     compileSdkVersion 30
