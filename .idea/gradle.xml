@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/myjava" />
             <option value="$PROJECT_DIR$/mykotlin" />
             <option value="$PROJECT_DIR$/remoteService" />
+            <option value="$PROJECT_DIR$/router-annotations" />
             <option value="$PROJECT_DIR$/router-gradle-plugin" />
           </set>
         </option>

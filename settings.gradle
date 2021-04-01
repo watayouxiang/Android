@@ -5,5 +5,6 @@ include ':mykotlin'
 include ':myjava'
 
 include ':router-gradle-plugin'
+include ':router-annotations'
 
 rootProject.name = 'Android'
