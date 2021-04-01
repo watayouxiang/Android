@@ -6,3 +6,25 @@ include ':mykotlin'
 include ':myjava'
 
 rootProject.name = 'Android'
+
+// 添加 构建的生命周期 监听
+// 执行命令 ./gradlew clean -q
+gradle.addBuildListener(new BuildAdapter(){
+    @Override
+    void settingsEvaluated(Settings settings) {
+        super.settingsEvaluated(settings)
+        println("project 初始化阶段完成")
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        super.projectsEvaluated(gradle)
+        println("project 配置阶段完成")
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        super.buildFinished(result)
+        println("project 构建结束")
+    }
+})
