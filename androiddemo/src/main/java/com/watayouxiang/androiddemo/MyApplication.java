@@ -13,7 +13,7 @@ import com.blankj.utilcode.util.ProcessUtils;
  *     desc   :
  * </pre>
  */
-public class MyApp extends Application {
+public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
