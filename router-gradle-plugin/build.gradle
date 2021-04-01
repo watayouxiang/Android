@@ -12,6 +12,10 @@ dependencies {
     implementation localGroovy()
 }
 
+//////////////////////////////////////////////////
+// 插件发布
+//////////////////////////////////////////////////
+
 // 调用 maven 插件，用于发布自己的插件
 apply plugin: 'maven'
 
@@ -31,3 +35,6 @@ uploadArchives {
         }
     }
 }
+
+// 执行发布命令：terminal 中输入
+// $ ./gradlew :router-gradle-plugin:uploadArchives

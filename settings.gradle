@@ -1,8 +1,9 @@
 include ':androiddemo'
 include ':remoteService'
-
 include ':androidutils'
 include ':mykotlin'
 include ':myjava'
+
+include ':router-gradle-plugin'
 
 rootProject.name = 'Android'
