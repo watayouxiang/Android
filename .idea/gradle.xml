@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/remoteService" />
             <option value="$PROJECT_DIR$/router-annotations" />
             <option value="$PROJECT_DIR$/router-gradle-plugin" />
+            <option value="$PROJECT_DIR$/router-processor" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

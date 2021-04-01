@@ -6,5 +6,6 @@ include ':myjava'
 
 include ':router-gradle-plugin'
 include ':router-annotations'
+include ':router-processor'
 
 rootProject.name = 'Android'

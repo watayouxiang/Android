@@ -1,0 +1,6 @@
+// 引入java插件，帮助编译代码
+apply plugin: 'java'
+
+dependencies {
+    implementation project(':router-annotations')
+}
