@@ -17,7 +17,6 @@ public class MainActivity extends ListActivity {
                 .addActivity(this, HandlerDemoActivity.class)
                 .addActivity(this, ServiceDemoActivity.class)
                 .addActivity(this, ViewDemoActivity.class)
-                .addActivity(this, BroadcastDemoActivity.class)
                 .addActivity(this, ContentProviderDemoActivity.class)
                 ;
     }

@@ -20,7 +20,7 @@ import androidx.annotation.Nullable;
 public class PersonProvider extends ContentProvider {
 
     // 包名
-    private static final String PACKAGE_NAME = "com.watayouxiang.myandroid";
+    private static final String PACKAGE_NAME = "com.watayouxiang.androiddemo";
     // 表名
     private static final String TABLE_NAME = "person";
     // 数据库名字
@@ -28,7 +28,7 @@ public class PersonProvider extends ContentProvider {
     // 数据库版本号
     private static final int DB_VERSION = 1;
     // Uri 的 authority 部分
-    private static final String AUTHORITY = PACKAGE_NAME + ".content_provider.demo.db.PersonProvider";
+    private static final String AUTHORITY = PACKAGE_NAME + ".provider.demo.db.PersonProvider";
     // Uri
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_NAME);
 

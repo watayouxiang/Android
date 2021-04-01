@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.watayouxiang.myandroid.view.Path_Base
+    <com.watayouxiang.androiddemo.view.Path_Base
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

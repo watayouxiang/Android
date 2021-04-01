@@ -61,7 +61,7 @@
 
         <provider
             android:name=".provider.demo.db.PersonProvider"
-            android:authorities="com.watayouxiang.myandroid.provider.demo.db.PersonProvider" />
+            android:authorities="com.watayouxiang.androiddemo.provider.demo.db.PersonProvider" />
 
 
     </application>
