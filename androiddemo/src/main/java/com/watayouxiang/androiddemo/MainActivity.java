@@ -1,14 +1,19 @@
 package com.watayouxiang.androiddemo;
 
+import com.imooc.router.annotations.Destination;
 import com.watayouxiang.androiddemo.animation.AnimationDemoActivity;
 import com.watayouxiang.androiddemo.handler.HandlerDemoActivity;
 import com.watayouxiang.androiddemo.provider.demo.ui.ContentProviderDemoActivity;
-import com.watayouxiang.androiddemo.receiver.BroadcastDemoActivity;
 import com.watayouxiang.androiddemo.service.ServiceDemoActivity;
 import com.watayouxiang.androiddemo.view.ViewDemoActivity;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 
+// 使用自己定义的注解
+@Destination(
+        url = "router://page-home",
+        description = "应用主页"
+)
 public class MainActivity extends ListActivity {
     @Override
     protected ListData getListData() {

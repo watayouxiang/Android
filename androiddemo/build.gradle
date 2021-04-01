@@ -45,4 +45,7 @@ dependencies {
 
     implementation 'com.blankj:utilcodex:1.30.5'
     implementation 'com.watayouxiang:DemoShell:1.0.8'
+
+    // 依赖自己的注解
+    implementation project(':router-annotations')
 }
