@@ -1,11 +1,13 @@
 package com.imooc.router.processor;
 
+import com.google.auto.service.AutoService;
 import com.imooc.router.annotations.Destination;
 
 import java.util.Collections;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
@@ -18,6 +20,11 @@ import javax.lang.model.element.TypeElement;
  *     desc   :
  * </pre>
  */
+
+/**
+ * 告诉 javac 加载注解处理器 DestinationProcessor
+ */
+@AutoService(Processor.class)
 public class DestinationProcessor extends AbstractProcessor {
 
     private static final String TAG = "DestinationProcessor";

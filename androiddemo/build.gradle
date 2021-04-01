@@ -48,4 +48,9 @@ dependencies {
 
     // 依赖自己的注解
     implementation project(':router-annotations')
+    // 依赖自己的注解处理器
+    annotationProcessor project(':router-processor')
+
+    // 测试注解处理器
+    // $ ./gradlew :androiddemo:assembleDebug -q
 }
