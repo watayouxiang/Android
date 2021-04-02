@@ -1,6 +1,7 @@
 // 使用maven插件中的发布功能
 apply plugin: 'maven'
 
+
 // 读取工程配置
 Properties rootProjectProperties = new Properties()
 rootProjectProperties.load(project.rootProject.file('gradle.properties').newDataInputStream())
@@ -8,9 +9,9 @@ def POM_URL = rootProjectProperties.getProperty("POM_URL")
 def GROUP_ID = rootProjectProperties.getProperty("GROUP_ID")
 def VERSION_NAME = rootProjectProperties.getProperty("VERSION_NAME")
 
-Properties projectProperties = new Properties()
-projectProperties.load(project.file('gradle.properties').newDataInputStream())
-def POM_ARTIFACT_ID = rootProjectProperties.getProperty("POM_ARTIFACT_ID")
+Properties childProjectProperties = new Properties()
+childProjectProperties.load(project.file('gradle.properties').newDataInputStream())
+def POM_ARTIFACT_ID = childProjectProperties.getProperty("POM_ARTIFACT_ID")
 
 println("maven-publish POM_URL = $POM_URL")
 println("maven-publish GROUP_ID = $GROUP_ID")
