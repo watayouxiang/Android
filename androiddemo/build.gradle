@@ -58,8 +58,13 @@ dependencies {
      * 资源库中找到 Internet Plug-Ins 文件夹，将文件夹名改为 InternetPlug-Ins
      * 参考：https://www.jianshu.com/p/3c1ad32a1def
      *
-     * 注意：com.imooc.router.processor.DestinationProcessor 类中的日志，仅在第一次编译时打印
+     * 注意：com.imooc.router.processor.DestinationProcessor 类中的日志，仅在第一次编译时打印.
+     *      如果需要再次打印，需要先清楚缓存 ./gradlew clean -q
      *
+     * // 清楚缓存
+     * $ ./gradlew clean -q
+     *
+     * // 查看编译日志
      * $ ./gradlew :androiddemo:assembleDebug -q
      */
 }
