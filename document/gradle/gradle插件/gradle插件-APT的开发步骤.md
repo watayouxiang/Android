@@ -53,7 +53,9 @@
     
     dependencies {
         implementation project(':router-annotations')
-    
+        
+        // 使用google的注解处理器，@AutoService(Processor.class)
+        // 会帮助自动创建 META-INF/services/javax.annotation.processing.Processor 文件
         implementation 'com.google.auto.service:auto-service:1.0-rc6'
         annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
     }
