@@ -23,6 +23,8 @@ import javax.lang.model.element.TypeElement;
 
 /**
  * 告诉 javac 加载注解处理器 DestinationProcessor
+ * <p>
+ * 会帮助自动创建 META-INF/services/javax.annotation.processing.Processor 文件
  */
 @AutoService(Processor.class)
 public class DestinationProcessor extends AbstractProcessor {
@@ -38,14 +40,19 @@ public class DestinationProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+
+        // 避免多次调用 process
+        if (roundEnvironment.processingOver()) {
+            return false;
+        }
+
         System.out.println(TAG + " >>> process start ...");
 
         // 获取所有标记了 @Destination 注解的 类的信息
         Set<Element> allDestinationElements = (Set<Element>)
                 roundEnvironment.getElementsAnnotatedWith(Destination.class);
 
-        System.out.println(TAG + " >>> all Destination elements count = "
-                + allDestinationElements.size());
+        System.out.println(TAG + " >>> all Destination elements count = " + allDestinationElements.size());
 
         // 当未收集到 @Destination 注解的时候，跳过后续流程
         if (allDestinationElements.size() < 1) {
