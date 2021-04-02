@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-//////////////////////////////////////////
+////////////////////////////////////////// gradle插件
 
 // 应用自己的插件
 apply plugin: 'com.imooc.router'
@@ -10,7 +10,7 @@ router {
     wikiDir getRootDir().absolutePath
 }
 
-//////////////////////////////////////////
+////////////////////////////////////////// gradle插件
 
 android {
     compileSdkVersion 30
@@ -46,6 +46,8 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.30.5'
     implementation 'com.watayouxiang:DemoShell:1.0.8'
 
+    ////////////////////////////////////////// APT
+
     // 依赖自己的注解
     implementation project(':router-annotations')
     // 依赖自己的注解处理器
@@ -67,4 +69,6 @@ dependencies {
      * // 查看编译日志
      * $ ./gradlew :androiddemo:assembleDebug -q
      */
+
+    ////////////////////////////////////////// APT
 }
