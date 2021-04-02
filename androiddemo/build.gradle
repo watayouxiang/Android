@@ -48,10 +48,13 @@ dependencies {
 
     ////////////////////////////////////////// APT
 
-    // 依赖自己的注解
-    implementation project(':router-annotations')
-    // 依赖自己的注解处理器
-    annotationProcessor project(':router-processor')
+//    // 依赖自己的注解
+//    implementation project(':router-annotations')
+//    // 依赖自己的注解处理器
+//    annotationProcessor project(':router-processor')
+
+    implementation 'com.imooc.router:router-annotations:1.0.0'
+    annotationProcessor 'com.imooc.router:router-processor:1.0.0'
 
     /**
      * 测试注解处理器

@@ -31,6 +31,13 @@ uploadArchives {
                 pom.version = VERSION_NAME
             }
 
+            /**
+             * 修改 router-processor 的 build.gradle 内容
+             *
+             * // 原本内容
+             * dependencies { implementation project(':router-annotations') }*
+             * // 修改后的内容
+             * dependencies { implementation 'com.imooc.router:router-annotations:1.0.0' }*/
             pom.whenConfigured { pom ->
                 pom.dependencies.forEach { dep ->
                     if (dep.getVersion() == "unspecified") {
@@ -43,3 +50,17 @@ uploadArchives {
         }
     }
 }
+
+
+/**
+ * 开始打包发布：
+ *
+ * // 清理build文件
+ * $ ./gradlew clean -q
+ *
+ *
+ * // 项目上传到maven本地仓库
+ * $ ./gradlew :router-annotations:uploadArchives
+ * $ ./gradlew :router-processor:uploadArchives
+ *
+ * */

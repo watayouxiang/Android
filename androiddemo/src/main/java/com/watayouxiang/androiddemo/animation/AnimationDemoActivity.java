@@ -1,5 +1,6 @@
 package com.watayouxiang.androiddemo.animation;
 
+import com.imooc.router.annotations.Destination;
 import com.watayouxiang.androiddemo.animation.tida.TidaAnimatorActivity;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
@@ -12,6 +13,10 @@ import com.watayouxiang.demoshell.ListData;
  *     desc   :
  * </pre>
  */
+@Destination(
+        url = "router://page-animation",
+        description = "动画测试页"
+)
 public class AnimationDemoActivity extends ListActivity {
     @Override
     protected ListData getListData() {

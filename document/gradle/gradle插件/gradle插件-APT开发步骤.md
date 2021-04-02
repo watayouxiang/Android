@@ -224,3 +224,193 @@
     }
     ```
 
+
+
+## 4、发布到本地maven仓库
+
+- rootProject 下的 gradle.properties 添加
+
+  - ```
+    POM_URL=../repo
+    GROUP_ID=com.imooc.router
+    VERSION_NAME=1.0.0
+    ```
+
+- router-annotations 项目下新建 gradle.properties 写入
+
+  - ```
+    POM_ARTIFACT_ID=router-annotations
+    ```
+
+- router-processor 项目下新建 gradle.properties 写入
+
+  - ```
+    POM_ARTIFACT_ID=router-processor
+    ```
+
+- rootProject 下新建 maven-publish.gradle 写入
+
+  - ```
+    // 使用maven插件中的发布功能
+    apply plugin: 'maven'
+    
+    
+    // 读取工程配置
+    Properties rootProjectProperties = new Properties()
+    rootProjectProperties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+    def POM_URL = rootProjectProperties.getProperty("POM_URL")
+    def GROUP_ID = rootProjectProperties.getProperty("GROUP_ID")
+    def VERSION_NAME = rootProjectProperties.getProperty("VERSION_NAME")
+    
+    Properties childProjectProperties = new Properties()
+    childProjectProperties.load(project.file('gradle.properties').newDataInputStream())
+    def POM_ARTIFACT_ID = childProjectProperties.getProperty("POM_ARTIFACT_ID")
+    
+    println("maven-publish POM_URL = $POM_URL")
+    println("maven-publish GROUP_ID = $GROUP_ID")
+    println("maven-publish VERSION_NAME = $VERSION_NAME")
+    println("maven-publish POM_ARTIFACT_ID = $POM_ARTIFACT_ID")
+    
+    
+    // 发布到本地 maven 仓库的任务
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+    
+                // 填入发布信息
+                repository(url: uri(POM_URL)) {
+                    pom.groupId = GROUP_ID
+                    pom.artifactId = POM_ARTIFACT_ID
+                    pom.version = VERSION_NAME
+                }
+    
+                /**
+                 * 修改 router-processor 的 build.gradle 内容
+                 *
+                 * // 原本内容
+                 * dependencies { implementation project(':router-annotations') }*
+                 * // 修改后的内容
+                 * dependencies { implementation 'com.imooc.router:router-annotations:1.0.0' }*/
+                pom.whenConfigured { pom ->
+                    pom.dependencies.forEach { dep ->
+                        if (dep.getVersion() == "unspecified") {
+                            dep.setGroupId(GROUP_ID)
+                            dep.setVersion(VERSION_NAME)
+                        }
+                    }
+                }
+    
+            }
+        }
+    }
+    ```
+
+- router-annotations 项目下 build.gradle 应用 maven-publish.gradle 插件
+
+  - ```
+    // 应用发布工程
+    apply from : rootProject.file("maven-publish.gradle")
+    ```
+
+- router-processor 项目下 build.gradle 应用 maven-publish.gradle 插件
+
+  - ```
+    // 应用发布工程
+    apply from : rootProject.file("maven-publish.gradle")
+    ```
+
+- 执行发布命令
+
+  - ```
+    /**
+     * 开始打包发布：
+     *
+     * // 清理build文件
+     * $ ./gradlew clean -q
+     *
+     *
+     * // 项目上传到maven本地仓库
+     * $ ./gradlew :router-annotations:uploadArchives
+     * $ ./gradlew :router-processor:uploadArchives
+     *
+     * */
+    ```
+
+
+
+## 5、应用maven仓库的aar
+
+- rootProject 的 build.gradle 写入仓库地址
+
+  - ```
+    buildscript {
+        // 插件所在的仓库
+        repositories {
+            /**
+             * 配置maven仓库地址
+             * 这里可以是相对路径地址，也可以是绝对路径地址
+             */
+            maven {
+                url uri("/Users/TaoWang/Documents/Code/github/Android/repo")
+            }
+    
+            google()
+            jcenter()
+        }
+    
+        // gradle 插件
+        dependencies {
+            classpath 'com.android.tools.build:gradle:4.1.3'
+    
+            /**
+             * 声明依赖的插件
+             * 形式是：groupId : artifactId : version
+             */
+            classpath 'com.imooc.router:router-gradle-plugin:1.0.0'
+        }
+    }
+    
+    allprojects {
+        // 工程依赖所在的仓库
+        repositories {
+            /**
+             * 配置maven仓库地址
+             * 这里可以是相对路径地址，也可以是绝对路径地址
+             */
+            maven {
+                url uri("/Users/TaoWang/Documents/Code/github/Android/repo")
+            }
+    
+            google()
+            jcenter()
+        }
+    }
+    ```
+
+- app module 的 build.gradle 中引用 注解和注解处理器
+
+  - ```
+    dependencies {
+        implementation 'com.imooc.router:router-annotations:1.0.0'
+        annotationProcessor 'com.imooc.router:router-processor:1.0.0'
+    }
+    ```
+
+- 验证结果
+
+  - ```
+    // 清空build文件
+    $ ./gradlew clean -q
+    
+    // 测试打包
+    $ ./gradlew :androiddemo:assembleDebug
+    
+    // 查看 androiddemo module 的 build/generated/ap_generated_sources/debug/out 目录下生成的代码是否正确
+    ```
+
+
+
+
+
+
+

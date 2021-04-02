@@ -1,5 +1,6 @@
 package com.watayouxiang.androiddemo.handler;
 
+import com.imooc.router.annotations.Destination;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 
@@ -11,6 +12,10 @@ import com.watayouxiang.demoshell.ListData;
  *     desc   :
  * </pre>
  */
+@Destination(
+        url = "router://page-handler",
+        description = "handler测试页"
+)
 public class HandlerDemoActivity extends ListActivity {
     @Override
     protected ListData getListData() {
