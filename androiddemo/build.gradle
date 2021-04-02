@@ -63,11 +63,15 @@ dependencies {
      * 注意：com.imooc.router.processor.DestinationProcessor 类中的日志，仅在第一次编译时打印.
      *      如果需要再次打印，需要先清楚缓存 ./gradlew clean -q
      *
-     * // 清楚缓存
+     * // 1、清除缓存
      * $ ./gradlew clean -q
      *
-     * // 查看编译日志
+     * // 2、开始debug编译
      * $ ./gradlew :androiddemo:assembleDebug -q
+     *
+     * //3、查看生成文件
+     * 生成的 RouterMapping_xxx.java 文件在:
+     * module 的 build/generated/ap_generated_sources/out/${packagename} 目录下
      */
 
     ////////////////////////////////////////// APT

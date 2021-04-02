@@ -81,7 +81,6 @@
          */
         @Override
         public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-    
             // 避免多次调用 process
             if (roundEnvironment.processingOver()) {
                 return false;
@@ -90,8 +89,7 @@
             System.out.println(TAG + " >>> process start ...");
     
             // 获取所有标记了 @Destination 注解的 类的信息
-            Set<Element> allDestinationElements = (Set<Element>)
-                    roundEnvironment.getElementsAnnotatedWith(Destination.class);
+            Set<Element> allDestinationElements = (Set<Element>) roundEnvironment.getElementsAnnotatedWith(Destination.class);
     
             System.out.println(TAG + " >>> all Destination elements count = " + allDestinationElements.size());
     
@@ -99,6 +97,19 @@
             if (allDestinationElements.size() < 1) {
                 return false;
             }
+    
+            // 将要自动生成的类的类名
+            String className = "RouterMapping_" + System.currentTimeMillis();
+    
+            StringBuilder builder = new StringBuilder();
+    
+            builder.append("package com.watayouxiang.androiddemo.mapping;\n\n");
+            builder.append("import java.util.HashMap;\n");
+            builder.append("import java.util.Map;\n\n");
+            builder.append("public class ").append(className).append(" {\n\n");
+            builder.append("    public static Map<String, String> get() {\n");
+            builder.append("        Map<String, String> mapping = new HashMap<>();\n\n");
+    
     
             // 遍历所有 @Destination 注解信息，挨个获取详细信息
             for (Element element : allDestinationElements) {
@@ -118,6 +129,35 @@
                 System.out.println(TAG + " >>> url = " + url);
                 System.out.println(TAG + " >>> description = " + description);
                 System.out.println(TAG + " >>> realPath = " + realPath);
+    
+                builder.append("        ")
+                        .append("mapping.put(")
+                        .append("\"" + url + "\"")
+                        .append(", ")
+                        .append("\"" + realPath + "\"")
+                        .append(");\n")
+                ;
+            }
+    
+            builder.append("\n");
+            builder.append("        return mapping;\n");
+            builder.append("    }\n\n");
+            builder.append("}\n");
+    
+            String mappingFullClassName = "com.watayouxiang.androiddemo.mapping." + className;
+    
+            System.out.println(TAG + " >>> mappingFullClassName = " + mappingFullClassName);
+            System.out.println(TAG + " >>> class content = \n" + builder);
+    
+            // 写入自动生成的类到本地文件中
+            try {
+                JavaFileObject source = processingEnv.getFiler().createSourceFile(mappingFullClassName);
+                Writer writer = source.openWriter();
+                writer.write(builder.toString());
+                writer.flush();
+                writer.close();
+            } catch (Exception e) {
+                throw new RuntimeException("Error while create file", e);
             }
     
             System.out.println(TAG + " >>> process finish ...");
@@ -169,11 +209,16 @@
          * 注意：com.imooc.router.processor.DestinationProcessor 类中的日志，仅在第一次编译时打印.
          *      如果需要再次打印，需要先清楚缓存 ./gradlew clean -q
          *
-         * // 清楚缓存
+         * // 1、清除缓存
          * $ ./gradlew clean -q
          *
-         * // 查看编译日志
+         * // 2、开始debug编译
          * $ ./gradlew :androiddemo:assembleDebug -q
+         *
+         * //3、查看生成文件
+         * 生成的 RouterMapping_xxx.java 文件在:
+         * module 的 build/generated/ap_generated_sources/out/${packagename} 目录下
          */
     }
     ```
+
