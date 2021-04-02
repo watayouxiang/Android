@@ -49,8 +49,7 @@ public class DestinationProcessor extends AbstractProcessor {
         System.out.println(TAG + " >>> process start ...");
 
         // 获取所有标记了 @Destination 注解的 类的信息
-        Set<Element> allDestinationElements = (Set<Element>)
-                roundEnvironment.getElementsAnnotatedWith(Destination.class);
+        Set<Element> allDestinationElements = (Set<Element>) roundEnvironment.getElementsAnnotatedWith(Destination.class);
 
         System.out.println(TAG + " >>> all Destination elements count = " + allDestinationElements.size());
 
@@ -58,6 +57,19 @@ public class DestinationProcessor extends AbstractProcessor {
         if (allDestinationElements.size() < 1) {
             return false;
         }
+
+        // 将要自动生成的类的类名
+        String className = "RouterMapping_" + System.currentTimeMillis();
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("package com.watayouxiang.androiddemo.mapping;\n\n");
+        builder.append("import java.util.HashMap;\n");
+        builder.append("import java.util.Map;\n\n");
+        builder.append("public class ").append(className).append(" {\n\n");
+        builder.append("    public static Map<String, String> get() {\n");
+        builder.append("        Map<String, String> mapping = new HashMap<>();\n\n");
+
 
         // 遍历所有 @Destination 注解信息，挨个获取详细信息
         for (Element element : allDestinationElements) {
@@ -77,7 +89,22 @@ public class DestinationProcessor extends AbstractProcessor {
             System.out.println(TAG + " >>> url = " + url);
             System.out.println(TAG + " >>> description = " + description);
             System.out.println(TAG + " >>> realPath = " + realPath);
+
+            builder.append("        ")
+                    .append("mapping.put(")
+                    .append("\"" + url + "\"")
+                    .append(", ")
+                    .append("\"" + realPath + "\"")
+                    .append(");\n")
+            ;
         }
+
+        builder.append("\n");
+        builder.append("        return mapping;\n");
+        builder.append("    }\n\n");
+        builder.append("}\n");
+
+
 
         System.out.println(TAG + " >>> process finish ...");
 
