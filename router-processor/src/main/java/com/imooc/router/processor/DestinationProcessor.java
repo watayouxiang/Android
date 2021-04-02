@@ -3,6 +3,7 @@ package com.imooc.router.processor;
 import com.google.auto.service.AutoService;
 import com.imooc.router.annotations.Destination;
 
+import java.io.Writer;
 import java.util.Collections;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
+import javax.tools.JavaFileObject;
 
 /**
  * <pre>
@@ -40,7 +42,6 @@ public class DestinationProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-
         // 避免多次调用 process
         if (roundEnvironment.processingOver()) {
             return false;
@@ -104,7 +105,21 @@ public class DestinationProcessor extends AbstractProcessor {
         builder.append("    }\n\n");
         builder.append("}\n");
 
+        String mappingFullClassName = "com.watayouxiang.androiddemo.mapping." + className;
 
+        System.out.println(TAG + " >>> mappingFullClassName = " + mappingFullClassName);
+        System.out.println(TAG + " >>> class content = \n" + builder);
+
+        // 写入自动生成的类到本地文件中
+        try {
+            JavaFileObject source = processingEnv.getFiler().createSourceFile(mappingFullClassName);
+            Writer writer = source.openWriter();
+            writer.write(builder.toString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            throw new RuntimeException("Error while create file", e);
+        }
 
         System.out.println(TAG + " >>> process finish ...");
 
