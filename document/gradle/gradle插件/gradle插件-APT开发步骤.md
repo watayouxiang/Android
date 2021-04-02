@@ -90,6 +90,9 @@
     
             System.out.println(TAG + " >>> process start ...");
     
+            // 获取 kapt 的参数 root_project_dir
+            String rootDir = processingEnv.getOptions().get("root_project_dir");
+    
             // 获取所有标记了 @Destination 注解的 类的信息
             Set<Element> allDestinationElements = (Set<Element>) roundEnvironment.getElementsAnnotatedWith(Destination.class);
     
@@ -112,6 +115,8 @@
             builder.append("    public static Map<String, String> get() {\n");
             builder.append("        Map<String, String> mapping = new HashMap<>();\n\n");
     
+    
+            final JsonArray destinationJsonArray = new JsonArray();
     
             // 遍历所有 @Destination 注解信息，挨个获取详细信息
             for (Element element : allDestinationElements) {
@@ -137,8 +142,15 @@
                         .append("\"" + url + "\"")
                         .append(", ")
                         .append("\"" + realPath + "\"")
-                        .append(");\n")
-                ;
+                        .append(");\n");
+    
+                // 组装json对象
+                JsonObject item = new JsonObject();
+                item.addProperty("url", url);
+                item.addProperty("description", description);
+                item.addProperty("realPath", realPath);
+    
+                destinationJsonArray.add(item);
             }
     
             builder.append("\n");
@@ -151,6 +163,7 @@
             System.out.println(TAG + " >>> mappingFullClassName = " + mappingFullClassName);
             System.out.println(TAG + " >>> class content = \n" + builder);
     
+    
             // 写入自动生成的类到本地文件中
             try {
                 JavaFileObject source = processingEnv.getFiler().createSourceFile(mappingFullClassName);
@@ -161,6 +174,31 @@
             } catch (Exception e) {
                 throw new RuntimeException("Error while create file", e);
             }
+    
+    
+            // 写入json到本地文件中
+            File rootDirFile = new File(rootDir);
+            if (!rootDirFile.exists()) {
+                throw new RuntimeException("root_project_dir not exist!");
+            }
+    
+            File routerFileDir = new File(rootDirFile, "router_mapping");
+            if (!routerFileDir.exists()) {
+                routerFileDir.mkdir();
+            }
+    
+            File mappingFile = new File(routerFileDir, "mapping_" + System.currentTimeMillis() + ".json");
+    
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(mappingFile));
+                String jsonStr = destinationJsonArray.toString();
+                out.write(jsonStr);
+                out.flush();
+                out.close();
+            } catch (Exception e) {
+                throw new RuntimeException("Error while writing json", e);
+            }
+    
     
             System.out.println(TAG + " >>> process finish ...");
     
@@ -410,7 +448,47 @@
 
 
 
+## 6、kapt的使用
 
+> apt只能收集java的注解，如果还要收集kotlin注解的话，需要使用kapt。
 
+- 根目录的 build.gradle 编写
 
+  - ```
+    buildscript {
+        dependencies {
+            // 添加 kotlin 编译插件
+            classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72'
+        }
+    }
+    ```
 
+- app module 的 build.gradle 编写
+
+  - ```
+    // kotlin 插件
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-kapt'
+    
+    android {
+        kapt {
+            arguments {
+                arg("root_project_dir", rootProject.projectDir.absolutePath)
+            }
+        }
+    }
+    
+    dependencies {
+        implementation project(':router-annotations')
+        // 搜集 java的注解 和 kotlin的注解
+        kapt project(':router-processor')
+    }
+    ```
+
+- 获取 kapt 的参数 root_project_dir
+
+  - ```
+    // 获取 kapt 的参数 root_project_dir
+    // 在 com.imooc.router.processor.DestinationProcesso#process 方法中
+    String rootDir = processingEnv.getOptions().get("root_project_dir");
+    ```
