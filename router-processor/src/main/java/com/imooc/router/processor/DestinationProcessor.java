@@ -1,8 +1,13 @@
 package com.imooc.router.processor;
 
 import com.google.auto.service.AutoService;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.imooc.router.annotations.Destination;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.Writer;
 import java.util.Collections;
 import java.util.Set;
@@ -49,6 +54,9 @@ public class DestinationProcessor extends AbstractProcessor {
 
         System.out.println(TAG + " >>> process start ...");
 
+        // 获取 kapt 的参数 root_project_dir
+        String rootDir = processingEnv.getOptions().get("root_project_dir");
+
         // 获取所有标记了 @Destination 注解的 类的信息
         Set<Element> allDestinationElements = (Set<Element>) roundEnvironment.getElementsAnnotatedWith(Destination.class);
 
@@ -71,6 +79,8 @@ public class DestinationProcessor extends AbstractProcessor {
         builder.append("    public static Map<String, String> get() {\n");
         builder.append("        Map<String, String> mapping = new HashMap<>();\n\n");
 
+
+        final JsonArray destinationJsonArray = new JsonArray();
 
         // 遍历所有 @Destination 注解信息，挨个获取详细信息
         for (Element element : allDestinationElements) {
@@ -96,8 +106,15 @@ public class DestinationProcessor extends AbstractProcessor {
                     .append("\"" + url + "\"")
                     .append(", ")
                     .append("\"" + realPath + "\"")
-                    .append(");\n")
-            ;
+                    .append(");\n");
+
+            // 组装json对象
+            JsonObject item = new JsonObject();
+            item.addProperty("url", url);
+            item.addProperty("description", description);
+            item.addProperty("realPath", realPath);
+
+            destinationJsonArray.add(item);
         }
 
         builder.append("\n");
@@ -110,6 +127,7 @@ public class DestinationProcessor extends AbstractProcessor {
         System.out.println(TAG + " >>> mappingFullClassName = " + mappingFullClassName);
         System.out.println(TAG + " >>> class content = \n" + builder);
 
+
         // 写入自动生成的类到本地文件中
         try {
             JavaFileObject source = processingEnv.getFiler().createSourceFile(mappingFullClassName);
@@ -120,6 +138,31 @@ public class DestinationProcessor extends AbstractProcessor {
         } catch (Exception e) {
             throw new RuntimeException("Error while create file", e);
         }
+
+
+        // 写入json到本地文件中
+        File rootDirFile = new File(rootDir);
+        if (!rootDirFile.exists()) {
+            throw new RuntimeException("root_project_dir not exist!");
+        }
+
+        File routerFileDir = new File(rootDirFile, "router_mapping");
+        if (!routerFileDir.exists()) {
+            routerFileDir.mkdir();
+        }
+
+        File mappingFile = new File(routerFileDir, "mapping_" + System.currentTimeMillis() + ".json");
+
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(mappingFile));
+            String jsonStr = destinationJsonArray.toString();
+            out.write(jsonStr);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            throw new RuntimeException("Error while writing json", e);
+        }
+
 
         System.out.println(TAG + " >>> process finish ...");
 

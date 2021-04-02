@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+// kotlin 插件
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 ////////////////////////////////////////// gradle插件
 
 // 应用自己的插件
@@ -34,6 +38,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kapt {
+        arguments {
+            arg("root_project_dir", rootProject.projectDir.absolutePath)
+        }
+    }
 }
 
 dependencies {
@@ -53,8 +62,12 @@ dependencies {
 //    // 依赖自己的注解处理器
 //    annotationProcessor project(':router-processor')
 
-    implementation 'com.imooc.router:router-annotations:1.0.0'
-    annotationProcessor 'com.imooc.router:router-processor:1.0.0'
+//    implementation 'com.imooc.router:router-annotations:1.0.0'
+//    annotationProcessor 'com.imooc.router:router-processor:1.0.0'
+
+    implementation project(':router-annotations')
+    // 搜集 java的注解 和 kotlin的注解
+    kapt project(':router-processor')
 
     /**
      * 测试注解处理器
