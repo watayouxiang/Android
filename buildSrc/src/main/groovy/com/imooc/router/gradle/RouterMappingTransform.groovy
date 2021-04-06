@@ -4,6 +4,9 @@ import com.android.build.api.transform.*
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.android.utils.FileUtils
 
+import java.util.jar.JarOutputStream
+import java.util.zip.ZipEntry
+
 
 class RouterMappingTransform extends Transform {
     /**
@@ -86,5 +89,46 @@ class RouterMappingTransform extends Transform {
         // RouterMappingTransform all mapping class name = [RouterMapping_1617693731656, RouterMapping_1617693732873]
         println("${getName()} all mapping class name = " + collector.mappingClassName)
 
+        //-------------------------------- 使用RouterMappingByteCodeBuilder
+        File mappingJarFile = transformInvocation.outputProvider.getContentLocation(
+                "router_mapping",
+                getOutputTypes(),
+                getScopes(),
+                Format.JAR)
+
+        println("${getName()} mappingJarFile = $mappingJarFile")
+
+        if (mappingJarFile.getParentFile().exists()) {
+            mappingJarFile.getParentFile().mkdirs()
+        }
+        if (mappingJarFile.exists()) {
+            mappingJarFile.delete()
+        }
+
+        // 将生成的字节码写入本地文件
+        FileOutputStream fos = new FileOutputStream(mappingJarFile)
+        JarOutputStream jarOutputStream = new JarOutputStream(fos)
+        ZipEntry zipEntry = new ZipEntry(RouterMappingByteCodeBuilder.CLASS_NAME + ".class")
+        jarOutputStream.putNextEntry(zipEntry)
+        jarOutputStream.write(RouterMappingByteCodeBuilder.get(collector.mappingClassName))
+
+        jarOutputStream.closeEntry()
+        jarOutputStream.close()
+        fos.close()
+
+        /*
+        验证：
+        $ ./gradlew clean
+        $ ./gradlew :androiddemo:assembleDebug -q
+
+        日志输出：RouterMappingTransform mappingJarFile = /Users/TaoWang/Documents/Code/github/Android/androiddemo/build/intermediates/transforms/RouterMappingTransform/debug/48.jar
+        查看build目录：androiddemo/build/intermediates/transforms/RouterMappingTransform/debug/48.jar
+
+        $ cd /Users/TaoWang/Documents/Code/github/Android/androiddemo/build/intermediates/transforms/RouterMappingTransform/debug
+        // 将 48.jar 解压到 48
+        $ unzip 48.jar -d 48
+
+        查看解压后的 RouterMapping.class 代码，验证正确性
+         */
     }
 }
