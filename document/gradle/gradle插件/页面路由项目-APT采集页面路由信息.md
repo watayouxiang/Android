@@ -90,9 +90,6 @@
     
             System.out.println(TAG + " >>> process start ...");
     
-            // 获取 kapt 的参数 root_project_dir
-            String rootDir = processingEnv.getOptions().get("root_project_dir");
-    
             // 获取所有标记了 @Destination 注解的 类的信息
             Set<Element> allDestinationElements = (Set<Element>) roundEnvironment.getElementsAnnotatedWith(Destination.class);
     
@@ -177,6 +174,9 @@
     
     
             // 写入json到本地文件中
+            // 获取 kapt 的参数 root_project_dir
+            String rootDir = processingEnv.getOptions().get("root_project_dir");
+            
             File rootDirFile = new File(rootDir);
             if (!rootDirFile.exists()) {
                 throw new RuntimeException("root_project_dir not exist!");
@@ -238,8 +238,24 @@
         implementation project(':router-annotations')
         // 依赖自己的注解处理器
         annotationProcessor project(':router-processor')
-    
-        /**
+    }
+    ```
+
+- 使用注解
+
+  - ```
+    // 使用自己定义的注解
+    @Destination(
+            url = "router://page-home",
+            description = "应用主页"
+    )
+    public class MainActivity extends Activity {
+    }
+    ```
+
+- 测试注解
+
+  -     /**
          * 测试注解处理器
          *
          * 异常处理：Mac OS 升级到11.0.1后 ./gradlew :androiddemo:assembleDebug -q 编译项目出错
@@ -259,8 +275,6 @@
          * 生成的 RouterMapping_xxx.java 文件在:
          * module 的 build/generated/ap_generated_sources/out/${packagename} 目录下
          */
-    }
-    ```
 
 
 
@@ -470,6 +484,7 @@
     apply plugin: 'kotlin-android'
     apply plugin: 'kotlin-kapt'
     
+    // 配置 kapt 参数
     android {
         kapt {
             arguments {
@@ -489,6 +504,7 @@
 
   - ```
     // 获取 kapt 的参数 root_project_dir
-    // 在 com.imooc.router.processor.DestinationProcesso#process 方法中
     String rootDir = processingEnv.getOptions().get("root_project_dir");
+    
+    // 详细代码在 com.imooc.router.processor.DestinationProcesso#process 方法中
     ```
