@@ -83,7 +83,7 @@ class RouterMappingTransform extends Transform {
             }
         }
 
-        // RouterMappingTransform all mapping class name = [RouterMapping_xxx, RouterMapping_1617693731656, RouterMapping_1617693732873]
+        // RouterMappingTransform all mapping class name = [RouterMapping_1617693731656, RouterMapping_1617693732873]
         println("${getName()} all mapping class name = " + collector.mappingClassName)
 
     }
