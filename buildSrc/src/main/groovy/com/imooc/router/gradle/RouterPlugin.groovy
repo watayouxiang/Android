@@ -40,6 +40,11 @@ class RouterPlugin implements Plugin<Project> {
             }
         }
 
+        // 容错处理，只处理App module，lib module则不处理
+        if (!project.plugins.hasPlugin(AppPlugin)) {
+            return
+        }
+
         println("i am from RouterPlugin, apply from ${project.name}")
 
         // 创建 Extension

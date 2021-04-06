@@ -1,3 +1,4 @@
+include ':biz-reading'
 include ':androiddemo'
 include ':remoteService'
 include ':androidutils'
