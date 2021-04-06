@@ -9,3 +9,9 @@ include ':router-annotations'
 include ':router-processor'
 
 rootProject.name = 'Android'
+
+// 打印本次构建执行的所有任务的名称
+// $ ./gradlew :androiddemo:assembleDebug -q
+gradle.taskGraph.beforeTask { task ->
+    println("[all-task] " + task.name)
+}
