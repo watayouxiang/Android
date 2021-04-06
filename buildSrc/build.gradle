@@ -4,12 +4,18 @@ apply plugin: 'groovy'
 // 声明仓库的地址
 repositories {
     jcenter()
+
+    // 包含 'com.android.tools.build:gradle:xxx'
+    google()
 }
 
 // 声明依赖的包
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
+
+    // 包含 com.android.build.api.transform.Transform
+    implementation 'com.android.tools.build:gradle:4.1.3'
 }
 
 //////////////////////////////////////////////////
