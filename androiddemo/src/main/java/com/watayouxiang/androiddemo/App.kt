@@ -1,6 +1,6 @@
 package com.watayouxiang.androiddemo
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.blankj.utilcode.util.CrashUtils
 import com.blankj.utilcode.util.ProcessUtils
 import com.imooc.gradle.router.runtime.Router
@@ -13,11 +13,11 @@ import com.imooc.gradle.router.runtime.Router
  *     desc   :
  * </pre>
  */
-class App : Application() {
+class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        if (ProcessUtils.isMainProcess()){
+        if (ProcessUtils.isMainProcess()) {
             initInternal()
         }
     }
