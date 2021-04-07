@@ -1,5 +1,8 @@
 package com.imooc.router.gradle
 
+import com.android.build.api.transform.Transform
+import com.android.build.gradle.AppExtension
+import com.android.build.gradle.AppPlugin
 import groovy.json.JsonSlurper
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,6 +11,13 @@ class RouterPlugin implements Plugin<Project> {
     // 实现apply方法，注入插件的逻辑
     @Override
     void apply(Project project) {
+
+        // 注册Transform
+        if (project.plugins.hasPlugin(AppPlugin)) {
+            AppExtension appExtension = project.extensions.getByType(AppExtension)
+            Transform transform = new RouterMappingTransform()
+            appExtension.registerTransform(transform)
+        }
 
         // 1、自动帮助用户传递路径参数到注解处理器中
         //     kapt {
@@ -28,6 +38,11 @@ class RouterPlugin implements Plugin<Project> {
             if (routerMappingDir.exists()) {
                 routerMappingDir.deleteDir()
             }
+        }
+
+        // 容错处理，只处理App module，lib module则不处理
+        if (!project.plugins.hasPlugin(AppPlugin)) {
+            return
         }
 
         println("i am from RouterPlugin, apply from ${project.name}")
@@ -75,7 +90,7 @@ class RouterPlugin implements Plugin<Project> {
                     if (!wikiFileDir.exists()) {
                         wikiFileDir.mkdir()
                     }
-                    File wikiFile = new File(wikiFileDir, "页面文档.md")
+                    File wikiFile = new File(wikiFileDir, "RouterMapping.md")
                     if (wikiFile.exists()) {
                         wikiFile.delete()
                     }
@@ -85,8 +100,6 @@ class RouterPlugin implements Plugin<Project> {
             // 测试 MD文档 是否生成
             // $ ./gradlew clean -q
             // $ ./gradlew :androiddemo:assembleDebug -q
-
-
 
 
         }
