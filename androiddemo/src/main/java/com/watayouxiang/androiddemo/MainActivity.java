@@ -19,14 +19,21 @@ public class MainActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
+                // ====================================================================================
+                // android demo
+                // ====================================================================================
+                .addSection("android demo")
                 .addActivity(this, AnimationDemoActivity.class)
                 .addActivity(this, HandlerDemoActivity.class)
                 .addActivity(this, ServiceDemoActivity.class)
                 .addActivity(this, ViewDemoActivity.class)
                 .addActivity(this, ContentProviderDemoActivity.class)
-
+                // ====================================================================================
+                // 测试路由框架
+                // ====================================================================================
                 .addSection("测试路由框架")
                 .addClick("测试打开路由页面", view -> Router.INSTANCE.go(view.getContext(), "router://imooc/profile?name=imooc&message=hello"))
+
                 ;
     }
 }
