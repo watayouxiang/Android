@@ -88,4 +88,5 @@ dependencies {
     ////////////////////////////////////////// APT
 
     implementation project(':biz-reading')
+    implementation project(':router-runtime')
 }
