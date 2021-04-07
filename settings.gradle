@@ -4,10 +4,10 @@ include ':androidutils'
 include ':mykotlin'
 include ':myjava'
 
-include ':router-gradle-plugin'
-include ':router-annotations'
-include ':router-processor'
-include ':router-runtime'
+include ':router-gradle-plugin'// 路由插件
+include ':router-annotations'// 路由注解
+include ':router-processor'// 路由注解处理器
+include ':router-runtime'// 路由注解运行时
 
 rootProject.name = 'Android'
 
