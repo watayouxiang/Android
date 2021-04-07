@@ -1,8 +1,10 @@
 package com.watayouxiang.androiddemo.demo.router
 
 import android.app.Activity
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
@@ -41,6 +43,18 @@ class ProfileActivity : Activity() {
         val message = intent.getStringExtra("message")
 
         textView.text = "Profile -> name=$name, message = $message"
+
+
+        // 获取渠道信息
+        try {
+            val appInfo =
+                packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            val channelName = appInfo.metaData.getString("MTA_CHANNEL")
+            Log.i("channel_test", "channelName = $channelName")
+        } catch (e: Exception) {
+            // ignore
+        }
+
 
     }
 }
