@@ -1,5 +1,9 @@
 package com.imooc.gradle.router.runtime
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
 import android.util.Log
 
 /**
@@ -36,6 +40,64 @@ object Router {
         } catch (e: Throwable) {
             Log.i(TAG, "init: error while init router: $e")
         }
+    }
+
+    fun go(context: Context, url: String) {
+        if (context == null || url == null) {
+            Log.i(TAG, "go: param error")
+            return
+        }
+
+        // 1、匹配URL，找到目标页面
+        // router://imooc/profile?name=imooc&message=hello
+
+        val uri = Uri.parse(url)
+        val scheme = uri.scheme
+        val host = uri.host
+        val path = uri.path
+
+        var targetActivityClass = ""
+        mapping.onEach {
+            val ruri = Uri.parse(it.key)
+            val rscheme = ruri.scheme
+            val rhost = ruri.host
+            val rpath = ruri.path
+
+            if (rscheme == scheme && rhost == host && rpath == path) {
+                targetActivityClass = it.value
+            }
+        }
+
+        if (targetActivityClass == "") {
+            Log.e(TAG, "go:     no destination found")
+            return
+        }
+
+        // 2、解析URL里的参数，封装成一个 Bundle
+
+        val bundle = Bundle()
+        val query = uri.query
+        query?.let {
+            if (it.length >= 3) {// a=b 至少三个字符
+                val args = it.split("&")
+                args.onEach { arg ->
+                    val splits = arg.split("=")
+                    bundle.putSerializable(splits[0], splits[1])
+                }
+            }
+        }
+
+        // 3、打开对应的Activity，并传入参数
+
+        try {
+            val activity = Class.forName(targetActivityClass)
+            val intent = Intent(context, activity)
+            intent.putExtras(bundle)
+            context.startActivity(intent)
+        } catch (e: Throwable) {
+            Log.e(TAG, "go: error while start activity: $targetActivityClass, e = $e")
+        }
+
     }
 
 }
