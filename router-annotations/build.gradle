@@ -5,5 +5,5 @@ apply plugin: 'java'
 targetCompatibility = JavaVersion.VERSION_1_7
 sourceCompatibility = JavaVersion.VERSION_1_7
 
-// 应用发布工程
+// 引用发布脚本
 apply from : rootProject.file("maven-publish.gradle")
