@@ -1,5 +1,6 @@
 package com.watayouxiang.androiddemo;
 
+import com.imooc.gradle.router.runtime.Router;
 import com.imooc.router.annotations.Destination;
 import com.watayouxiang.androiddemo.animation.AnimationDemoActivity;
 import com.watayouxiang.androiddemo.handler.HandlerDemoActivity;
@@ -23,6 +24,9 @@ public class MainActivity extends ListActivity {
                 .addActivity(this, ServiceDemoActivity.class)
                 .addActivity(this, ViewDemoActivity.class)
                 .addActivity(this, ContentProviderDemoActivity.class)
+
+                .addSection("测试路由框架")
+                .addClick("测试打开路由页面", view -> Router.INSTANCE.go(view.getContext(), "router://imooc/profile?name=imooc&message=hello"))
                 ;
     }
 }

@@ -63,6 +63,8 @@
             android:name=".provider.demo.db.PersonProvider"
             android:authorities="com.watayouxiang.androiddemo.provider.demo.db.PersonProvider" />
 
+        <!--demo-->
+        <activity android:name=".demo.ProfileActivity" />
 
     </application>
 
