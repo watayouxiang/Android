@@ -1,3 +1,4 @@
+// 编译脚本
 buildscript {
     // 插件所在的仓库
     repositories {
@@ -27,6 +28,7 @@ buildscript {
     }
 }
 
+// 面向所有工程
 allprojects {
     // 工程依赖所在的仓库
     repositories {
