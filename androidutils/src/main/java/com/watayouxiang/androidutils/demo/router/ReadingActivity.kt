@@ -1,4 +1,4 @@
-package com.watayouxiang.androidutils.demo
+package com.watayouxiang.androidutils.demo.router
 
 import android.app.Activity
 import com.imooc.router.annotations.Destination

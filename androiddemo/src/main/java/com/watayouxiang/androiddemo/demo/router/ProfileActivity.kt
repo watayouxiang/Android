@@ -1,4 +1,4 @@
-package com.watayouxiang.androiddemo.demo
+package com.watayouxiang.androiddemo.demo.router
 
 import android.app.Activity
 import android.graphics.Color
