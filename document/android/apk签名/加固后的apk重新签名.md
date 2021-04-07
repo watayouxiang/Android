@@ -16,3 +16,4 @@ jarsigner -digestalg SHA1 -sigalg MD5withRSA -verbose -keystore /Users/TaoWang/D
 
 
 jarsigner -digestalg SHA1 -sigalg MD5withRSA -tsa -verbose -keystore [你的keystore文件路径] -signedjar [重新签名后生成的apk文件路径] [要加固的apk文件路径] [你的keystore文件别名]
+
