@@ -1,4 +1,4 @@
-package com.imooc.gradle.sample.biz.reading
+package com.watayouxiang.androidutils.demo
 
 import android.app.Activity
 import com.imooc.router.annotations.Destination

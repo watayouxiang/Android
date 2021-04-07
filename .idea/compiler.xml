@@ -20,6 +20,8 @@
         <module name="Android.router-processor" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Android.biz-reading" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

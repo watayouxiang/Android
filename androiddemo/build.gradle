@@ -90,6 +90,6 @@ dependencies {
 
     ////////////////////////////////////////// APT
 
-    implementation project(':biz-reading')
+    implementation project(':androidutils')
     implementation project(':router-runtime')
 }
