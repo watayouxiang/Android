@@ -12,4 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+
+# 自定义忽略规则
 /router_mapping
+RouterMapping.md

@@ -90,7 +90,7 @@ class RouterPlugin implements Plugin<Project> {
                     if (!wikiFileDir.exists()) {
                         wikiFileDir.mkdir()
                     }
-                    File wikiFile = new File(wikiFileDir, "页面文档.md")
+                    File wikiFile = new File(wikiFileDir, "RouterMapping.md")
                     if (wikiFile.exists()) {
                         wikiFile.delete()
                     }
