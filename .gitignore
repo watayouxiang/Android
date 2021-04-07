@@ -12,3 +12,4 @@
 /captures
 .externalNativeBuild
 .cxx
+/router_mapping
