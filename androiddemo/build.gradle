@@ -163,11 +163,11 @@ dependencies {
 
 // 限制依赖库的使用
 // $ ./gradlew :androiddemo:assembleDebug
-configurations.all {
-    resolutionStrategy.eachDependency { detail ->
-        String dependency = detail.requested.toString()
-        if (dependency.contains("com.blankj:utilcodex:1.30.5")) {
-            throw new RuntimeException("不允许使用 $dependency")
-        }
-    }
-}
+//configurations.all {
+//    resolutionStrategy.eachDependency { detail ->
+//        String dependency = detail.requested.toString()
+//        if (dependency.contains("com.blankj:utilcodex:1.30.5")) {
+//            throw new RuntimeException("不允许使用 $dependency")
+//        }
+//    }
+//}
