@@ -16,14 +16,27 @@ router {
 
 ////////////////////////////////////////// gradle插件
 
+////////////////////////////////////////// 获取 local.properties 参数
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+def KEY_ALIAS = properties.getProperty('KEY_ALIAS')
+def KEY_PASSWORD = properties.getProperty('KEY_PASSWORD')
+def STORE_PASSWORD = properties.getProperty('STORE_PASSWORD')
+
+println("KEY_ALIAS = $KEY_ALIAS, KEY_PASSWORD = $KEY_PASSWORD, STORE_PASSWORD = $STORE_PASSWORD")
+
+////////////////////////////////////////// 获取 local.properties 参数
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
     defaultConfig {
         applicationId "com.watayouxiang.androiddemo"
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -31,10 +44,10 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'test_wt666'
-            keyPassword 'test_wt666'
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
             storeFile file('../wt_apkkey/test_wt666.key')
-            storePassword 'test_wt666'
+            storePassword STORE_PASSWORD
         }
     }
 
@@ -46,7 +59,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-
+            signingConfig signingConfigs.release
         }
     }
 
@@ -97,9 +110,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/nineoldandroids.jar')
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation APP_COMPAT
+    implementation MATERIAL
+    implementation CONSTRAINT_LAYOUT
 
     implementation 'com.blankj:utilcodex:1.30.5'
     implementation 'com.watayouxiang:DemoShell:1.0.8'
@@ -108,6 +121,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
 
     implementation 'androidx.multidex:multidex:2.0.0'
+
+    implementation project(':androidutils')
+    implementation project(':router-runtime')
 
     ////////////////////////////////////////// APT
 
@@ -143,9 +159,4 @@ dependencies {
      * 生成的 RouterMapping_xxx.java 文件在:
      * module 的 build/generated/ap_generated_sources/out/${packagename} 目录下
      */
-
-    ////////////////////////////////////////// APT
-
-    implementation project(':androidutils')
-    implementation project(':router-runtime')
 }
