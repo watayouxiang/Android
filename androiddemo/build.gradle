@@ -53,13 +53,22 @@ android {
 
     // 构建类型
     buildTypes {
+        debug {
+            // 往 BuildConfig.java 中添加一个字段
+            // 生成目录：build/generated/source/buildConfig/...BuildConfig.java
+            buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
+            // 生成目录：build/generated/res/resValues/...gradleResValues.xml
+            resValue("string", "greeting", "hello!")
+            signingConfig signingConfigs.release
+        }
         release {
+            // 往 BuildConfig.java 中添加一个字段
+            // 生成目录：build/generated/source/buildConfig/...BuildConfig.java
+            // 这里之所以也添加，目的是预防编译报错
+            buildConfigField("String", "BUILD_TIME", "\"0\"")
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            signingConfig signingConfigs.release
         }
     }
 
