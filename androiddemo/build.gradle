@@ -86,6 +86,10 @@ android {
     flavorDimensions "channel"
     // 产品风味
     productFlavors {
+        // 开发专用的构建变体
+        dev {
+            minSdkVersion 21
+        }
         huawei {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "huawei"]
         }
@@ -180,3 +184,10 @@ dependencies {
 //        }
 //    }
 //}
+
+// 分析构建任务的耗时
+// --offline 开始离线模式，避免网络因素干扰
+// --rerun-tasks 不使用任何缓存
+// --profile 生成一份性能报告
+// 性能报告所在位置：build/reports/profile/...xxx.html
+// $ ./gradlew androiddemo:assembleHuaweiDebug --offline --rerun-tasks --profile
