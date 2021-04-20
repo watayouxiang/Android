@@ -6,7 +6,7 @@
 
 ## 2、dex2jar转dex为jar
 
-dex2jar下载地址：https://bitbucket.org/pxb1988/dex2jar/downloads/
+dex2jar下载地址：https://sourceforge.net/projects/dex2jar/files/latest/download
 
 ```
 $ cd /Users/TaoWang/Downloads
